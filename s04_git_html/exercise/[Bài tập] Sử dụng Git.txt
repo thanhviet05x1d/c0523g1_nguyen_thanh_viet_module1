@@ -1,0 +1,13 @@
+1. Clone dự án github về máy.
+
+Link dự án từ CodeGym:
+
+https://github.com/codegym-vn/wf-hello
+
+2. Đẩy thư mực chứa 2 file lên Github
+
+Ảnh ở máy tính
+
+Link github thư mục 2 file
+
+https://github.com/thanhviet05x1d/GitProject/tree/2ed1ac3323f3a232e0b5b9ad234179f150a58cbf/thu%20muc%202%20file
