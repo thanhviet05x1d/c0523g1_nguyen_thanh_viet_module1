@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello</title>
+    </head>
+<body>
+    <div id="divMess">Clic vao nut 2</div>
+    <!-- Hiển thị kết quả hàm Alert -->
+    <button type="button" onclick="showMess1()">Click 1</button><br>
+    <!-- Hiển thị kết quả ở thẻ DIV -->
+    <button type="button" onclick="showMess2()">Click 2</button><br>
+    <!-- Hiển thị kết quả bằng document write -->
+    <button type="button" onclick="showMess3()">Click 3</button><br>
+    <!-- Hiển thị kết quả bằng hàm console.log -->
+    <button type="button" onclick="showMess4()">Click 4</button>
+  
+    <script>
+        function showMess1(){
+            alert("Xin chao ban 1");
+        }
+        function showMess2(){
+            document.getElementById("divMess").innerHTML="Xin chao ban";
+        }
+        function showMess3(){
+            document.write("Xin chao ban 3");
+        }
+        function showMess4(){
+            console.log("Xin chao ban 4");
+        }
+    </script>
+</body>
+</html>
