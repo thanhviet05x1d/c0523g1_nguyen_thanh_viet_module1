@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi so BMI</title>
+</head>
+<body>
+<h1> Xác định chỉ số Body mass index-BMI </h1>
+<label> Cân nặng</label><input id="weight" type="number">
+<label> Chiều cao</label>(<input id="height" type="number"><br/>
+<button onclick="tinh_BMI()">Tính BMI</button>
+<p id="p_bmi"></p>
+<script>
+    function tinh_BMI() {
+        let weight = parseFloat(document.getElementById("weight").value);
+        let height = parseFloat(document.getElementById("height").value);
+        let bmi = weight / (height ^ 2);
+        bmi = bmi.toFixed(2);
+        let interpretaion;
+        if (bmi < 18) {
+            interpretaion = "Underweight";
+        }
+        else if (bmi < 25.0) {
+            interpretaion = "Normal";
+        }
+        else if (bmi < 30.0) {
+            interpretaion = "Overweight";
+        } else
+            interpretaion = "Obese";
+        document.getElementById("p_bmi").innerText = "Chỉ số BMI = " + bmi + " -->> " + interpretaion;
+    }
+
+</script>
+</body>
+</html>

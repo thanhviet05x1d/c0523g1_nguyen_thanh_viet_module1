@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toan tu 3 ngoi</title>
+</head>
+<body>
+<script>
+    // Bài 1:
+    let a = parseInt(prompt("Nhập vào số a: "));
+    let b = parseInt(prompt("Nhập vào số b: "));
+    // Cách 1 dùng hàm If
+    if ((a + b) < 4) {
+        result = 'Below';
+    } else result = 'Above';
+    alert(result);
+    // Cách 2 viết toán tử 3 ngôi
+    result2 = (a + b < 4) ? 'Below' : 'Above';
+    alert('Kết quả lần 2: ' + result2)
+
+</script>
+</body>
+</html>

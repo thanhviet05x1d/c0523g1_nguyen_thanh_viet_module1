@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toan tu 3 ngoi</title>
+</head>
+<body>
+<script>
+    // Bài 2:
+    //Cách 1 dùng hàm If
+    login = prompt("Nhập vào bạn là ai?")
+    let message;
+    if (login == 'Employee') {
+        message = 'Hello';
+    } else if (login == 'Director') {
+        message = 'Greetings';
+    } else if (login == '') {
+        message = 'No login';
+    } else {
+        message = '';
+    }
+    alert(message);
+
+    //Cách 2 dùng toán tử 3 ngôi
+    message = (login == 'Employee') ?
+        'Hello' :
+        (login == 'Director') ?
+            'Greetings' :
+            (login == '') ?
+                'No login' :
+                '';
+    alert(message);
+</script>
+</body>
+</html>

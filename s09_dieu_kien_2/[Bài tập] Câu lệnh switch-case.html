@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính được số ngày trong một tháng</title>
+</head>
+<body>
+<form>
+    <h1> Xác định số ngày của tháng </h1>
+    <label> Tháng </label><input id="month" type="number">
+    <button onclick="soNgay()">Hiện số ngày</button>
+    <p id="p_soNgay"></p>
+    <script>
+        function soNgay() {
+            let month = parseInt(document.getElementById("month").value);
+            switch (month) {
+                case 2:
+                    document.getElementById("p_soNgay").innerHTML = "Tháng " + month + " có số ngày = 28 hoặc 29";
+                    break;
+                case 1:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                    document.getElementById("p_soNgay").innerHTML = "Tháng " + month + " có số ngày = 31";
+                    break;
+                default :
+                    document.getElementById("p_soNgay").innerText = "Vui lòng nhập tháng";
+            }
+        }
+    </script>
+</form>
+</body>
+</html>
