@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực hành và sử dụng biến</title>
+</head>
+<body>
+<script>
+    let i = 10;
+    let f = 20.5;
+    let b = true;
+    let s = 'Hà Nội'
+    document.write('i= ' + i);
+    document.write('<br/>');
+    document.write('f= ' + f);
+    document.write('<br/>');
+    document.write('b = ' + b);
+    document.write('<br/>');
+    document.write('s = ' + s);
+    document.write('<br/>');
+    //Tính diện tích hình chữ nhât
+    let width = 20;
+    let height = 10;
+    let area = width * height;
+    document.write('Area of Rectangular = ' + area);
+    document.write('<br/>');
+    // Promt 2 số và xem có phải là bội số không?
+
+    let so1 = prompt("Nhập vào số thứ 1");
+    let so2 = prompt("Nhập vào số thứ 2");
+    if (so2 == 0) {
+        so2 = prompt("Nhập lại số khác 0");
+    }
+    let sodu = so1 % so2;
+    if (sodu != 0) {
+        alert("Số thứ 1 không chia hết cho Số thứ 2");
+    } else {
+        alert("Số thứ 1 chia hết cho Số thứ 2")
+    }
+    document.write('số thứ 1 = ' + so1);
+    document.write('<br/>');
+    document.write('số thứ 2 = ' + so2);
+    document.write('<br/>');
+
+</script>
+</body>
+</html>
