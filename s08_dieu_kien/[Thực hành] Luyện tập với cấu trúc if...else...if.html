@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dieu kien If Else If</title>
+</head>
+<body>
+<script>
+    let userName = prompt("Bạn là ai thế?");
+    if (userName == "Admin") {
+        let passWord = prompt("Mời bạn nhập pw?");
+        if (passWord == "viet") {
+            alert("Chào Admin");
+        } else alert("Canceled");
+    } else if (userName != "Admin") {
+        alert("Bạn không được vào đây!");
+        alert("Canceled");
+    }
+</script>
+</body>
+</html>
