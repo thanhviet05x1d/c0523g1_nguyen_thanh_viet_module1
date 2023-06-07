@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biến kiểu dữ liệu và toán tử</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="text"], input[type="number"] {
+            padding: 5px;
+            width: 90%;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<!--Bài 1: Viết chương trình nhập điểm của một sinh viên cho các môn: Vật lý, Hóa học, và Sinh học. Sau đó hiển thị điểm trung bình và tổng của những điểm này.-->
+<table>
+    <tr>
+        <th>Họ tên</th>
+        <th>Vật lý</th>
+        <th>Hóa học</th>
+        <th>Sinh học</th>
+    </tr>
+    <tr>
+        <td><input id="full_name" type="text"></td>
+        <td><input id="ly" type="number"></td>
+        <td><input id="hoa" type="number"></td>
+        <td><input id="sinh" type="number"></td>
+    </tr>
+</table>
+<button id="tinh" onclick="tinhdiem()">Tính điểm</button>
+<p id="tong_diem" type="text"></p>
+<hr>
+<!--Bài 2:  Viết chương trình nhập một giá trị là độ 0C (Celsius) và chuyển nó sang độ 0F (Fahrenheit). [Hướng dẫn: C/5 = (F-32)/9]-->
+<table>
+    <tr>
+        <th>Độ C</th>
+        <th>Độ F</th>
+    </tr>
+    <tr>
+        <td><input id="doC" type="number"></td>
+        <td><p id="doF" type="number"></p></td>
+    </tr>
+</table>
+<button id="nhietdo" onclick="nhietdo()">Chuyển</button>
+<hr>
+
+<!--Bài 3: Viết chương trình tính diện tích hình tròn-->
+<table>
+    <tr>
+        <th>Bán kính</th>
+        <th>Diện tích</th>
+        <th>Chu vi</th>
+    </tr>
+    <tr>
+        <td><input id="ban_kinh" type="number"></td>
+        <td><p id="d_tich"></p></td>
+        <td><p id="c_vi"></p></td>
+    </tr>
+
+</table>
+<button id="tinh_dt_cvi" onclick="dien_tich_chu_vi()">Tính Diện tích và Chu vi</button>
+<hr>
+<!--Bài 4: Viết chương trình chu vi hình tròn-->
+<script>
+    //1. Hàm tính điểm học sinh
+    function tinhdiem() {
+        let ly = parseFloat(document.getElementById("ly").value);
+        let hoa = parseFloat(document.getElementById("hoa").value);
+        let sinh = parseFloat(document.getElementById("sinh").value);
+        let dtb = (ly + hoa + sinh) / 3;
+        let tongdiem = (ly + hoa + sinh);
+        document.getElementById("tong_diem").innerHTML = "Điểm trung bình = " + dtb + " Và tổng điểm = " + tongdiem;
+    }
+
+    //2. Hàm chuyển nhiệt độ
+    function nhietdo() {
+        let doC = parseFloat(document.getElementById("doC").value);
+        let doF = 9 / 5 * doC + 32;
+        document.getElementById("doF").innerHTML = "Nhiệt độ F =" + doF;
+    }
+
+    //3. Hàm tính diện tích và chu vi đường tròn
+    function dien_tich_chu_vi() {
+        let radius = parseFloat(document.getElementById("ban_kinh").value);
+        let d_tich = 3.14 * radius * radius;
+        let c_vi = 3.14 * 2 * radius;
+        document.getElementById("d_tich").innerHTML = "Diện tích =" + d_tich;
+        document.getElementById("c_vi").innerHTML = "Chu vi =" + c_vi;
+    }
+</script>
+</body>
+</html>
