@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><input typeof="number" id="amount" value="1"></td>
+        <td>
+            <select id="fromC">
+                <option>VND</option>
+                <option>USD</option>
+            </select>
+        </td>
+        <td>
+            <select id="toC">
+                <option>VND</option>
+                <option>USD</option>
+            </select>
+        </td>
+        <td>
+            <button id="convert" onclick="convert()" style="font-size: 13px">Convert</button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4"><p id="p_result">Result</p></td>
+    </tr>
+</table>
+
+<script>
+    function convert() {
+        let amount = document.getElementById("amount").value;
+        let fromC = document.getElementById("fromC").value;
+        let toC = document.getElementById("toC").value;
+        let result;
+        if (fromC == toC) {
+            result = 1 * amount;
+        }
+            else if (fromC == "USD"){
+                result=23000*amount ;
+            }
+            else if (fromC == "VND"){
+                result=amount/23000;
+            }
+        document.getElementById("p_result").innerHTML = "Resul: " + result + " "+toC
+    }
+</script>
+</body>
+</html>

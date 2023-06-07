@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính bỏ túi</title>
+</head>
+<body>
+<input id="num1" value="12" type="number"> <input id="num2" value="12" type="number"><br/>
+<hr>
+<button id="btn1" onclick="add1()">Addition(+)</button>
+<button id="btn2" onclick="sub1()">Subtraction(+)</button>
+<button id="btn3" onclick="mul1()">Multiplication(+)</button>
+<button id="btn4" onclick="div1()">Division(+)</button>
+<br/>
+<p id="p_result">Kết quả = </p>
+<script>
+    debugger
+    function add1() {
+        let num1 = parseFloat(document.getElementById("num1").value);
+        let num2 = parseFloat(document.getElementById("num2").value);
+        let add1 = num1 + num2;
+        document.getElementById("p_result").innerHTML = "Kết quả = " + add1
+    }
+
+    function sub1() {
+        let num1 = parseFloat(document.getElementById("num1").value);
+        let num2 = parseFloat(document.getElementById("num2").value);
+        let sub1 = num1 - num2;
+        document.getElementById("p_result").innerHTML = "Kết quả = " + sub1
+    }
+
+    function mul1() {
+        let num1 = parseFloat(document.getElementById("num1").value);
+        let num2 = parseFloat(document.getElementById("num2").value);
+        let mul1 = num1 * num2;
+        document.getElementById("p_result").innerHTML = "Kết quả = " + mul1
+    }
+
+    function div1() {
+        let num1 = parseFloat(document.getElementById("num1").value);
+        let num2 = parseFloat(document.getElementById("num2").value);
+        let div1 = num1 / num2;
+        document.getElementById("p_result").innerHTML = "Kết quả = " + div1
+    }
+</script>
+</body>
+</html>
