@@ -21,15 +21,12 @@
     }
     alert(message);
 
-    //Cách 2 dùng toán tử 3 ngôi
-    message = (login == 'Employee') ?
-        'Hello' :
-        (login == 'Director') ?
-            'Greetings' :
-            (login == '') ?
-                'No login' :
-                '';
-    alert(message);
+// Cach 2 dung toan tu 3 ngoi
+    let message2;
+    (login=='Employee') ? message2='Hello':
+        (login=='Director') ? message2='Greeting':
+            message2='No login';
+    alert(`Su dung toan tu 3 ngoi: ${message2}`);
 </script>
 </body>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toan tu 3 ngoi</title>
+</head>
+<body>
+<script>
+    // Bài 1:
+    let numberA = +prompt("Nhap vao so A:");
+    let numberB = +prompt("Nhap vao so B:");
+    let result;
+    if ((numberA + numberB) < 4) {
+        result = "Below";
+    } else result = "Above";
+    document.write(`dung ham if: ${result} </br>`);
+
+    let result2;
+    ((numberA + numberB) < 4) ? result2 = "Below" : result2 = "Above";
+    document.write(`dung toan tu 3 ngoi: ${result2} </br>`);
+</script>
+</body>
+</html>

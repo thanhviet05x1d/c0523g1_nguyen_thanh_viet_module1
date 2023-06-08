@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập 9.17] Luyện tập cấu trúc điều kiện 02</title>
+</head>
+
+<body>
+<style>
+    table, tr, th, td {
+        border: 1px solid;
+        border-collapse: collapse;
+    }
+</style>
+<h3>Thu nhập tính thuế (TNTT) = Tổng thu nhập - giảm trừ cá nhân (11tr) - giảm trừ phụ thuộc (4.4tr x số người phụ
+    thuộc)</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Bậc</th>
+        <th>Thu nhập tính thuế/tháng</th>
+        <th>Thuế suất</th>
+        <th>Tính số thuế phải nộp</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Đến 5 triệu đồng (trđ)</td>
+        <td>5%</td>
+        <td>5% x TNTT</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Trên 5 trđ đến 10 trđ</td>
+        <td>10%</td>
+        <td>10% TNTT - 0,25 trđ</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Trên 10 trđ đến 18 trđ</td>
+        <td>15%</td>
+        <td>15% TNTT - 0,75 trđ</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Trên 18 trđ đến 32 trđ</td>
+        <td>20%</td>
+        <td>20% TNTT - 1,65 trđ</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Trên 32 trđ đến 52 trđ</td>
+        <td>25%</td>
+        <td>25% TNTT - 3,25 trđ</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Trên 52 trđ đến 80 trđ</td>
+        <td>30%</td>
+        <td>30 % TNTT - 5,85 trđ</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Trên 80 trđ</td>
+        <td>35%</td>
+        <td>35% TNTT - 9,85 trđ</td>
+    </tr>
+    </tbody>
+</table>
+<hr>
+<div>
+    <label for="tong_thu_nhap">Nhập vào tổng thu nhập của bạn</label>
+    <input id="tong_thu_nhap" type="number" value="15000000"></br>
+    <label for="ng_pt">Số người phụ thuộc vào bạn</label>
+    <input id="ng_pt" type="number" value="0"></br>
+    <label for="tn_tt">Thu nhập tính thuế</label>
+    <input id="tn_tt" type="number" disabled value=""></br>
+    <input type="button" value="Tính tiền" onclick="tinhThue()">
+    <label for="thue_tncn">Tiền nộp thuế thu nhập cá nhân: </label>
+    <input id="thue_tncn" type="text" disabled value=""></br>
+</div>
+
+<script>
+    // Bài 10: Viết chương trình tính giá điện.
+    function tinhThue() {
+        let tongTN = +document.getElementById("tong_thu_nhap").value;
+        let nguoiPt = +document.getElementById("ng_pt").value;
+        let tnTT = tongTN - 11000000 - 4400000 * nguoiPt;
+        if (tnTT>0) {
+            let thueTncn;
+
+            if (tn_tt >= 80000000) {
+                thueTncn = 0.35 * tnTT - 9850000;
+            } else if (tn_tt >= 52000000) {
+                thueTncn = 0.3 * tnTT - 5850000;
+            } else if (tn_tt >= 32000000) {
+                thueTncn = 0.25 * tnTT - 3250000;
+            } else if (tn_tt >= 18000000) {
+                thueTncn = 0.2 * tnTT - 1650000;
+            } else if (tn_tt >= 10000000) {
+                thueTncn = 0.15 * tnTT - 750000;
+            } else if (tn_tt >= 5000000) {
+                thueTncn = 0.1 * tnTT - 250000;
+            } else thueTncn = 0.05 * tnTT;
+            document.getElementById("tn_tt").value= tnTT.toFixed(2);
+            document.getElementById("thue_tncn").value = thueTncn.toFixed(2);
+        }else {
+            document.getElementById("tn_tt").value= tnTT.toFixed(2);
+            document.getElementById("thue_tncn").value = "Không nộp thuế TNCN"
+        }
+
+    }
+</script>
+</body>
+</html>

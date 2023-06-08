@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập 9.13] Luyện tập cấu trúc điều kiện 02</title>
+</head>
+<body>
+
+<script>
+
+    //Bài 7. Giải phương trình bậc 2 (ax^2+bx+c=0.
+    let numberA = +prompt("Nhap vao he so a");
+    if (numberA == 0) {
+        alert("Nhập lại giá trị a # 0");
+
+    } else if (numberA != 0) {
+        let numberB = +prompt("Nhap vao he so b");
+        let numberC = +prompt("Nhap vao he so c");
+        let delta = (numberB * numberB) / (4 * numberA * numberC);
+        if (delta < 0) {
+            alert("Phương trình vô nghiệm");
+        } else if (delta == 0) {
+            alert("Phương trình có nghiệm x1=x2=" + (-numberB / 2 / numberA));
+        } else {
+            let x1=((-numberB + Math.sqrt(delta) / 2 / numberA)).toFixed(2);
+            let x2=((-numberB - Math.sqrt(delta) / 2 / numberA)).toFixed(2);
+            alert("Phương trình có 2 nghiệm phân biệt x1= " +x1 + " và x2=" +x2);
+        }
+    }
+    debugger
+</script>
+</body>
+</html>

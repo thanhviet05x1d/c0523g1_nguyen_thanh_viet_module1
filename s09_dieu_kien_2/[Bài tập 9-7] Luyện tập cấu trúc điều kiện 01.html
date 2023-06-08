@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập 9.7] Luyện tập cấu trúc điều kiện 01</title>
+</head>
+<body>
+
+<script>
+
+    //Bài 7: Tính cước điện thoại cho một hộ gia đình với các thông số đã cho
+    //gia dinh: time >100p la 100k , time >80p la 80k , time >50p la 50k, time <50p la 40k
+    let timeCall = +prompt("Nhap vao so phut goi dien cua gia dinh: ");
+
+    if (timeCall >= 100) {
+        alert(`Tong so tien: 100k`);
+    } else if (timeCall >= 80) {
+        alert(`Tong so tien: 80k`);
+    } else if (timeCall >= 50) {
+        alert(`Tong so tien: 50k`);
+    } else alert(`Tong so tien: 40k`);
+
+</script>
+</body>
+</html>

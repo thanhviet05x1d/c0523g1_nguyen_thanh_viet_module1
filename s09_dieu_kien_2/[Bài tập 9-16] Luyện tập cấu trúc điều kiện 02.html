@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập 9.13] Luyện tập cấu trúc điều kiện 02</title>
+</head>
+<body>
+
+<script>
+    // Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác.
+    // Điều kiện để a,b,c là cạnh của một tam giác là:
+    // a,b,c > 0
+    // a + b > c
+    // b + c > a
+    // a + c > b
+
+    let canhA = +prompt("Nhập cạnh a");
+    let canhB = +prompt("Nhập cạnh b");
+    let canhC = +prompt("Nhập cạnh c");
+    if (canhA > 0 && canhB > 0 && canhC > 0) {
+        if (((canhA + canhB) > canhC) && ((canhA + canhB) > canhC) && ((canhA + canhB) > canhC)) {
+            alert(`3 số bạn nhập vào là giá trị 3 cạnh của tam giác ${canhA} và ${canhB} và ${canhC}`);
+        }else alert("Không phải là 3 cạnh của một tam giác");
+    } else alert("Không phải là 3 cạnh của một tam giác");
+</script>
+</body>
+</html>

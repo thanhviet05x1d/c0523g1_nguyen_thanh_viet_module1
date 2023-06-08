@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập 9.17] Luyện tập cấu trúc điều kiện 02</title>
+</head>
+
+<body>
+<style>
+    table, tr, th, td {
+        border: 1px solid;
+        border-collapse: collapse;
+    }
+</style>
+<table>
+    <tr>
+        <th>TT</th>
+        <th>Số kWh sử dụng</th>
+        <th>Giá bán điện (đồng/kWh)</th>
+    </tr>
+    <tr>
+        <td>Bậc 1</td>
+        <td>Cho kWh từ 0 - 50</td>
+        <td>1.678</td>
+    </tr>
+    <tr>
+        <td>Bậc 2</td>
+        <td>Cho kWh từ 51 - 100</td>
+        <td>1.734</td>
+    </tr>
+    <tr>
+        <td>Bậc 3</td>
+        <td>Cho kWh từ 101 - 200</td>
+        <td>2.014</td>
+    </tr>
+    <tr>
+        <td>Bậc 4</td>
+        <td>Cho kWh từ 201 - 300</td>
+        <td>2.536</td>
+    </tr>
+    <tr>
+        <td>Bậc 5</td>
+        <td>Cho kWh từ 301 - 400</td>
+        <td>2.834</td>
+    </tr>
+    <tr>
+        <td>Bậc 6</td>
+        <td>Cho kWh từ 401 trở lên</td>
+        <td>2.927</td>
+    </tr>
+</table>
+<input type="button" value="Tính tiền" onclick="tinhTien()">
+<p id="tong-tien">Thành tiền: </p>
+<script>
+    // Bài 10: Viết chương trình tính giá điện.
+    function tinhTien() {
+        let soKwh = +prompt("Nhập vào số kWh đã dùng");
+        let soTien;
+        if (soKwh >= 401) {
+            soTien = 2.927 * soKwh;
+        } else if (soKwh >= 301) {
+            soTien = 2.834 * soKwh;
+        } else if (soKwh >= 201) {
+            soTien = 2.536 * soKwh;
+        } else if (soKwh >= 101) {
+            soTien = 2.014 * soKwh;
+        } else if (soKwh >= 51) {
+            soTien = 1.734 * soKwh;
+        } else soTien = 1.678 * soKwh;
+        document.getElementById("tong-tien").innerHTML="Số tiền bạn cần thanh toán: " + soTien.toFixed(2);
+    }
+</script>
+</body>
+</html>

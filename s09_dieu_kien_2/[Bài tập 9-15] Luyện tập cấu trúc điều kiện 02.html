@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập 9.13] Luyện tập cấu trúc điều kiện 02</title>
+</head>
+<body>
+
+<script>
+    //Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không.
+    // Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0
+    let age = +prompt("Nhập vào số tuổi của một người");
+    if (age % 1 != 0) {
+        alert("Nhập lại một số nguyên");
+    } else if (age < 0 || age > 120) {
+        alert("Bạn nhập vào một số nguyên không phải là số tuổi của con người");
+    } else alert("Đúng rồi, số tuổi bạn nhập là " + age);
+</script>
+</body>
+</html>
