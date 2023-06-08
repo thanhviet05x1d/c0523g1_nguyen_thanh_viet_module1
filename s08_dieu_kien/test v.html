@@ -7,14 +7,18 @@
 <body>
 <script>
     let a = 3, b = 4, c = 5;
-    var answer;
-    if (a == b) {
+    let answer;
+
+    if (a == b) { // Vế 1
         if (a == c) {
             answer = "all are equal";
         } else {
             answer = "a and b are equal";
         }
-    } else {
+
+    } else { // Vế 2, Có thể bỏ qua từ else ở đây cũng được, nhưng nó sẽ kiểm
+        // tra luôn các điều kiện phía dưới và nó gây nên tình trạng tốn tài nguyên.
+        // Nếu ta để else thì kiểm tra Vế 1 đúng, sẽ bỏ qua vế 2
         if (a == c) {
             answer = "a and c are equal";
         } else {
@@ -25,7 +29,8 @@
             }
         }
     }
-alert(answer);
+    // debugger;
+    alert(answer);
 </script>
 </body>
 </html>

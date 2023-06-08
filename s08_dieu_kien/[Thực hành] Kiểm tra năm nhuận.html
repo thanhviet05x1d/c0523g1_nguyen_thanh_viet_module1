@@ -6,20 +6,24 @@
 </head>
 <body>
 <script>
-    let year = prompt("Nhập vào 1 năm bất kỳ:");
-    if (year % 4 == 0) {
-        if (year % 100 != 0) {
-            alert("nam nhuan");
-        } else {
-            if ((year % 100 == 0) && (year % 400 == 0)) {
-                alert("nam nhuan");
-            } else {
-                alert("khong phai nam nhuan");
-            }
-        }
-    } else {
-        alert("khong phai nam nhuan");
-    }
+    let year = parseInt(prompt("Nhập vào 1 năm bất kỳ:"));
+    let d4 = year % 4 == 0;
+    let d100 = year % 100 == 0;
+    let d400 = year % 400 == 0;
+    let namNhuan = true;
+
+    if (d4) {
+        if (d100) {
+            if (d400) {
+                namNhuan = true;
+            } else namNhuan = false;
+        } else namNhuan = true;
+    } else namNhuan = false;
+
+    if (namNhuan == true) {
+        alert(`${year} ->> là năm nhuận`);
+    } else alert(`${year} ->> Không phải là năm nhuận`);
+    debugger;
 </script>
 </body>
 </html>
