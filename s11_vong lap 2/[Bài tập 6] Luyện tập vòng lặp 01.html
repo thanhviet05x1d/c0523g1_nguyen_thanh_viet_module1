@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập 6] Luyện tập vòng lặp 01</title>
+</head>
+<body>
+<style>
+
+</style>
+<script>
+
+    // Bài 6: Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.
+    let dayso = "";
+    let i = 1;
+    let sum = 0;
+    let slChia7 = 0;
+    while (slChia7 < 30) {
+        if (i % 7 == 0) {
+            slChia7++;
+            dayso += (i + "</br>");
+            sum = sum + i;
+        }
+        i++;
+    }
+    document.write(dayso);
+    document.write('Tổng 30 số đầu tiên chia hết cho 7: ' + sum);
+</script>
+
+</body>
+</html>

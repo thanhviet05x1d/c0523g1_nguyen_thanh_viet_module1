@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập 6] Luyện tập vòng lặp 01</title>
+</head>
+<body>
+<style>
+    div {
+        align-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    button {
+        width: 20%;
+        height: 100px;
+        font-size: 25px;
+    }
+</style>
+<div>
+    <button id="btn_Press" onclick="randomIntFromInterval()"> Play</button>
+</div>
+
+
+<script>
+    function randomIntFromInterval() { // min and max included
+        let dem = 0;
+        let min = +prompt("Nhập vào số cận dưới");
+        let max = +prompt("Nhập vào số cận trên");
+        let numberR = Math.floor(Math.random() * (max - min + 1) + min);
+        alert(numberR);
+
+        while (dem < 3) {
+            let numberEnter = +prompt("Bạn nhập vào 1 số ngẫu nhiên");
+            if (numberEnter == numberR) {
+                alert("Chúc mừng bạn đã nhận được" + numberEnter + "tỷ");
+                break;
+            } else {
+                dem++;
+                alert(`Bạn còn ${3 - dem} lượt nữa`)
+            }
+
+        }
+        document.getElementById("btn_Press").innerText = "RePlay";
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập 2] Luyện tập vòng lặp 01</title>
+</head>
+<body>
+<style>
+
+</style>
+<script>
+
+    // Bài 5: Tính tổng của 20 số đầu tiên trong dãy fibonacci.
+    let so1 = 0, so2 = 1;
+    let dayso = (so1 + "</br>" + so2 + "</br>");
+    let soLuongFi = 0;
+    let i = 1;
+    let sum = so1 + so2;
+    while (soLuongFi < 20) {
+        if (i == (so1 + so2)) {
+            dayso += (i + "</br>");
+            so1 = so2;
+            so2 = i;
+            soLuongFi++;
+            sum = sum + i;
+        }
+        i++;
+    }
+    document.write(dayso);
+    document.write('Tổng 20 số đầu tiên của dãy Fibo: ' + sum);
+</script>
+
+</body>
+</html>
