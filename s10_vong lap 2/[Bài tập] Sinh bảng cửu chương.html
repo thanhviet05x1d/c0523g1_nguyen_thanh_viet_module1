@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Sinh bảng cửu chương</title>
+</head>
+<body>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    td {
+        border: 1px solid;
+    }
+</style>
+<script>
+    let bang = '<table>';
+    for (let i = 1; i <= 9; i++) {
+        bang = bang + '<tr>';
+        for (let j = 2; j <= 9; j++) {
+            bang = bang + '<td>' + `${j} x ${i} = ${j * i}` + '</td>'
+        }
+        bang = bang + '</tr>';
+    }
+    bang = bang + '</table>';
+    // alert(bang)
+    document.write(bang);
+
+</script>
+
+</body>
+</html>

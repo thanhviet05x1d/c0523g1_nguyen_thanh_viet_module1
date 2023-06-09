@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Sử dụng vòng lặp for</title>
+</head>
+<body>
+<script>
+
+    // bài 1 JS loop
+    let i;
+    let text='';
+    for (i = 0; i <= 10; i++) {
+     text +="This i number "+i+"<br>";
+    }
+    document.write(text);
+
+    // Bài 2
+let num2 = +prompt("Nhập vào một số lớn hơn 0");
+let sum=0;
+if (num2<=0){
+    alert("Mời bạn nhập lại số lớn hơn 0");
+}else {
+    for (let i=1; i<=num2;i++){
+        sum +=i;
+    }
+    alert(`Tong tu 1 den ${num2} la: ${sum}`);
+}
+
+
+
+</script>
+
+
+</body>
+</html>
