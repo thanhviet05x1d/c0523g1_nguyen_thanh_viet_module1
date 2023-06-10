@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập 1] Luyện tập vòng lặp 02</title>
+</head>
+<body>
+<style>
+
+</style>
+<script>
+
+    // Bài 1: In dãy Fibonaci
+    let n = +prompt("Bạn hãy nhập vào số lượng của  dãy fibonaci");
+    let so1 = 0, so2 = 1;
+    let dayso=(so1 + "</br>"+ so2 +"</br>");
+    let soLuongFi=0;
+    let i=1;
+    while (soLuongFi<(n-2)){
+        if (i == (so1 + so2)) {
+            dayso+=(i+"</br>");
+            so1 = so2;
+            so2 = i;
+            soLuongFi++;
+        }
+        i++;
+    }
+    // alert(soLuongFi +"và "+i);
+    document.write(dayso);
+    // debugger;
+
+    // // Cách 2: Dùng hàm For.
+    // let n = +prompt("Bạn hãy nhập vào số lượng của  dãy fibonaci");
+    // let so1 = 0, so2 = 1;
+    // let dayso=(so1 + "</br>"+ so2 +"</br>");
+    // for (let i = 1; i <= 20; i++) {
+    //     if (i == (so1 + so2)) {
+    //         dayso+=(i+"</br>");
+    //         so1 = so2;
+    //         so2 = i;
+    //     }
+    // }
+    // document.write(dayso);
+
+</script>
+
+</body>
+</html>
