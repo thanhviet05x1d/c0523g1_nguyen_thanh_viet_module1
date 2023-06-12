@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Ứng dụng vui Faking Textarea on Typing</title>
+</head>
+<body>
+<h3>Luyện đánh chữ</h3>
+<textarea id="myTextarea" name="myTextarea" rows="4" cols="50" onkeyup="changeText()"></textarea><br/>
+
+<!--<input type="button" id="btn-change" value="Change" onclick="changeText()"><hr>-->
+<input type="button" id="btn-reset" value="Try again" onclick="resetAll()"><br/>
+<script>
+    function changeText() {
+        let myText = 'BẠN LÀ MỘT ĐỨA NGỐC, HI HI, đừng gõ nữa nhé bạn :v :v :v';
+        let yourText = document.getElementById('myTextarea').value;
+        let myArr = [];
+        let data = '';
+        for (let i = 0; i < yourText.length; i++) {
+            myArr[i] = myText[i%myText.length];
+            data += myArr[i];
+        }
+        document.getElementById("myTextarea").value = data;
+    }
+
+    function resetAll() {
+        location.reload();
+    }
+</script>
+</body>
+</html>

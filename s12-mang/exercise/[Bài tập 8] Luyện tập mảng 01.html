@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7.</title>
+
+    <!--    Bài 8- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử.
+     Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.-->
+
+</head>
+<body>
+<script>
+    // 1. Sắp xếp tăng dần
+    let myArr = [1, -23, -4, 15, 6, 7, -8, 39, 10];
+    // Sắp xếp với hàm so sánh và sort()
+    myArr.sort(function (a, b) {
+        if (a > b) return 1;
+        if (a < b) return -1;
+        return 0;
+    });
+
+    // In ra kết quả sau khi sắp xếp
+    console.log(myArr);
+    // 2. Sắp xếp giảm dần
+
+    // Sắp xếp với hàm so sánh và sort()
+    myArr.sort(function (a, b) {
+        if (a > b) return -1;
+        if (a < b) return 1;
+        return 0;
+    });
+    // In ra kết quả sau khi sắp xếp
+    console.log(myArr);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó.</title>
+
+</head>
+<body>
+<script>
+    // let myArr = [1, 23, 4, 15, 6, 7, 8, 39, 10];
+    let yourString = prompt("Nhập vào một dãy số nguyên");
+    let myArr = [];
+    for (let i = 0; i < yourString.length; i++) {
+        myArr[yourString.length-i-1] = yourString[i];
+    }
+    alert(myArr.join());
+</script>
+</body>
+</html>
