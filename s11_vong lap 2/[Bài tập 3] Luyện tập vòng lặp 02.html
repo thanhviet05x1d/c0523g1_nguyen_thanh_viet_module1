@@ -5,6 +5,10 @@
     <title>[Bài tập] Luyện tập vòng lặp 02</title>
 </head>
 <body>
+<div id="div1" style="text-align: left"></div>
+<div id="div2" style="text-align: left"></div>
+<div id="div3" style="text-align: left"></div>
+<div id="div4" style="text-align: left"></div>
 <style>
 
 </style>
@@ -16,21 +20,30 @@
     let gocV3 = 3;
     let gocV4 = 4;
 
+
+    let daySo = "*****";
+
     // Vẽ tam giác vuông thuận
-    let dayso1 = "";
-    for (let i = 1; i <= 5; i++) {
-        dayso1 += "*"
-        document.write(dayso1 + "</br>");
+    let temp1 = '';
+    for (let i = 0; i < 5; i++) {
+        temp1 +=daySo.substring(daySo.length, 4-i) + '<br/>'
     }
+
+
+    document.getElementById('div1').innerHTML=(temp1 +'<hr>');
+    document.getElementById('div3').innerHTML=(temp1 +'<hr>');
+
 
     // Vẽ tam giác vuông ngược
 
-    let dayso2 = "*****";
-    for (let i = 1; i <= 5; i++) {
-        document.write(dayso2 + "</br>");
-        dayso2 = dayso2.substring(dayso2.length, 1);
+    let temp2 = '';
+    for (let i = 0; i < 5; i++) {
+
+        temp2 += daySo.substring(daySo.length, i) + '<br/>'
     }
 
+    document.getElementById('div2').innerHTML=(temp2 +'<hr>');
+    document.getElementById('div4').innerHTML=(temp2 +'<hr>');
 
 </script>
 

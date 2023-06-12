@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Từ điển</title>
+</head>
+<body>
+<h3>Tra từ điển</h3>
+<input type="text" id="enter-string" value="banana"> <input type="button" id="btn-translate" value="Dịch" onclick="btn_translate()">
+<p id="result"></p>
+<script>
+let eng=['banana','apple','mango'];
+let vi=['chuối','táo','xoài'];
+function btn_translate(){
+    let string=document.getElementById('enter-string').value;
+    let check=eng.indexOf(string);
+    if (check!==-1){
+        string=vi[check];
+    } else string="Không tìm thấy trong từ điển"
+    document.getElementById('result').innerHTML=string;
+}
+</script>
+</body>
+</html>

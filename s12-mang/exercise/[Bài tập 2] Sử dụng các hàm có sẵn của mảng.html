@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập 2] Sử dụng các hàm có sẵn của mảng</title>
+
+</head>
+<body>
+<script>
+
+    let daySo = prompt("Mời bạn nhập vào 1 dãy số");
+    // Lúc này daySo sẽ là một String, cách truy xuất ký tự giống mảng.
+    let numFist = daySo[0]; // Đừng hiểu lầm, nó đang lấy ký tự đầu tiên của String đó, cách viết giống mảng
+    alert(numFist); // Tui show thử nó ra cái qq gì, cái này chả có ý nghĩa.
+    let myArr = []; // Tui khai báo một mảng
+    myArr[0] = daySo[0]; // Tui gán phần tử đầu tiên của mảng là ký tự đầu tiên của chuỗi
+    for (i = 1; i < daySo.length; i++) {
+        if (daySo[i - 1] % 2 == 0 && daySo[i] % 2 == 0) {
+            myArr.push('-'); // nó đẩy ký tự - vào mảng
+        }
+        myArr.push(daySo[i]); // tất nhiên là đẩy lần lượt các ký tự chuỗi vào mảng
+    }
+    alert(myArr.join('')); // dùng join để đổi mảng thành chuỗi luôn, nó sẽ bỏ dấu phẩy , đi.
+
+</script>
+</body>
+</html>

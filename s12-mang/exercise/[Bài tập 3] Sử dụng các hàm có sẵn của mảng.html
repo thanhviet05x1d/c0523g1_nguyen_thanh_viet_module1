@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập 2] Sử dụng các hàm có sẵn của mảng</title>
+
+</head>
+<body>
+<script>
+
+    let UPPER1="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let UPPER="AĂÂBCDĐEÊGHIKLMNOÔƠPQRSTUƯVXY";
+    let LOWER1="abcdefghijklmnopqrstuvwxyz";
+    let LOWER="aăâbcdđeêghiklmnoôơpqrstuưvxy";
+
+    // let chuoiKyTu = "Nguyen Thanh Viet"
+    let chuoiKyTu = prompt("Mời bạn nhập vào 1 dãy ký tự có Hoa và thường");
+
+    // let firstCha=chuoiKyTu[0];
+    // let check=UPPER.indexOf(firstCha); // Nó sẽ tìm thấy N là ký tự thứ 13 trong dãy UPPER
+    // let check2=LOWER.indexOf(firstCha); // Nó sẽ trả về -1 vì ko tìm thấy N
+
+    let myArr=[];
+    for (i=0;i<chuoiKyTu.length;i++){
+        if (UPPER.indexOf(chuoiKyTu[i])!==-1){
+            myArr[i]=chuoiKyTu[i].toLowerCase();
+        }else myArr[i]=chuoiKyTu[i].toUpperCase();
+    }
+    alert(myArr.join(''));
+
+</script>
+</body>
+</html>
