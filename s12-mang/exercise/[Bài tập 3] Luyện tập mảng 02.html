@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng.
+        Chương trình này đếm số ký tự số trong mảng. </title>
+
+</head>
+<body>
+<script>
+    let data = ''
+    let a = ['c', 's', 'c', 2, 6, 1];
+    alert('Chiều dài mảng là ' + a.length);
+    for (let i = 0; i < a.length; i++) {
+        if (typeof a[i] == "number") {
+            data += i + ',';
+        }
+    }
+    alert("Các vị trí phần tử số " + data);
+</script>
+</body>
+</html>

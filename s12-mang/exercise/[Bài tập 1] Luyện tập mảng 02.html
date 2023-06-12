@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1: Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn,
+        in ra các phần tử trong mảng. Chú ý: Sử dụng vòng lặp for lồng nhau</title>
+
+</head>
+<body>
+<script>
+    let data = '';
+    let a = [
+        [1, 2, 1, 24],
+        [8, 11, 9, 4],
+        [7, 0, 7, 27],
+        [7, 4, 28, 14],
+        [3, 10, 26, 7]
+    ];
+    // alert(a.length);
+    // for (let i=0;i<5;i++){
+    //     for (let j=0;j<4;j++){
+    //         data+=a[i][j]+'<br/>';
+    //     }
+    // }
+    // document.write(data);
+    // a sample 2-D array
+
+    for (let i in a) {
+        console.log("row " + i);
+        for (let j in a[i]) {
+            console.log("" + a[i][j]);
+        }
+    }
+
+    // Cách 2
+    // a sample 2-D array
+
+
+    for (const i in a) {
+        console.log(`row ${i}`);
+        for (const j in a[i]) {
+            console.log(` ${a[i][j]}`);
+        }
+    }
+
+</script>
+</body>
+</html>
