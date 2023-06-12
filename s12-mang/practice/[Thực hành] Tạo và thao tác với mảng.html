@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Tạo và thao tác với mảng</title>
+    <style>
+        body {
+            padding-top: 10px
+        }
+    </style>
+</head>
+
+<body>
+<h2> Sample Screenn</h2>
+<input type="text" id="enter-Value">
+<input type="button" id="btn_Add" value="Add" onclick="addValue()">
+<input type="button" id="btn_Display" value="Display" onclick="displayResult()">
+<div id="result"></div>
+
+<script>
+    let x = 0;
+    let arrV = [];
+
+    function addValue() {
+        arrV[x] = document.getElementById('enter-Value').value;
+        x++;
+        document.getElementById('enter-Value').value = '';
+    }
+
+    function displayResult() {
+        let result = '<hr>';
+        for (let i = 0; i < arrV.length; i++) {
+            result += 'Element ' + i + arrV[i] + '<br/>';
+        }
+        document.getElementById('result').innerHTML = result
+    }
+
+</script>
+</body>
+</html>

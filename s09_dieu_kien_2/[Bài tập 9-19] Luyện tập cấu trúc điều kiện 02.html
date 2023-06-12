@@ -7,68 +7,31 @@
 <body>
 
 <h3>Công thức tính lãi suất kép ngân hàng cơ bản</h3>
-
-
 <p><strong>A = P*(1 + r)^n</strong></span></p>
-
 <p>Trong đó:</span></p>
-
 <p>- A là số tiền mà quý khách nhận được trong tương lai.</span></p>
-
 <p>- P là số tiền gốc quý khách bỏ ra để đầu tư ban đầu.</span></p>
-
 <p>- r là lãi suất hằng năm.</span></p>
-
 <p>- n là số chu kỳ thực hiện lãi kép.</span></p>
-
-<p>Ví dụ: Quý khách có tiền vốn là 2 tỷ đồng, gửi tiết kiệm ngân hàngHDBank với lãi suất 7.9%/năm. Sau 10 năm, tổng số
-    tiền cả gốc lẫn lãi nhận được là bao nhiêu?</span></p>
-
-<p>Nếu quý khách gửi lãi đơn, cách tính lãi suất tiết kiệm ngân hàngđược tính theo công thức:</span></p>
-
-<p><strong>Số tiền lãi = Số tiền gửi * lãi suất (%/năm) * số năm</strong></span></p>
-
-<p>Như vậy, sau 10 năm,&nbsp;tổng số tiền cả gốc lẫn lãi nhận được là:</span></p>
-
-<p>2 + 2*7.9%*10 = 3.58 tỷ đồng</span></p>
-
-<p>Nếu quý khách gửi lãi kép, áp dụng công thức tính lãi suất kép như trên,&nbsp;tổng tiền lãi và gốc sau 10 năm gửi
-    tiết kiệm mà quý khách nhận được là:</span></p>
-
-<p>A = 2*(1 + 7,9%)^10 = 4.28 tỷ đồng</span></p>
-
-<p>&nbsp;</span></p>
-
-<h3 class="text-align-justify"><span
-        style="font-size: 18px; color: #000000;">Công thức tính lãi suất kép theo năm</span></h3>
-
-<p>&nbsp;</span></p>
-
-<p><strong>A = P*(1+r/n)^(n*t)</strong></span></p>
-
-<p>Trong đó:</span></p>
-
-<p>- A là số tiền mà quý khách nhận được trong tương lai.</span></p>
-
-<p>- P là số tiền gốc quý khách bỏ ra để đầu tư ban đầu.</span></p>
-
-<p>- r là lãi suất hằng năm.</span></p>
-
-<p>- n là số chu kỳ thực hiện trong 1 năm.</span></p>
-
-<p>- t là số năm gửi lãi kép.</span></p>
-
-<p>Ví dụ: Quý khách mở sổ tiết kiệm ngân hàng HDBank 2 tỷ đồng, được nhập gốc hàng quý với lãi suất 7.9%/năm. Vậy số vốn
-    và lãi bạn nhận được sau 5 năm là bao nhiêu?</span></p>
-
-<p>Áp dụng công thức tính lãi suất kép theo năm, số tiền quý khách nhận cả gốc và lãi sau 5 năm là:</span></p>
-
-<p>A = 2*(1 + 7,9%/ 4)^(4*5) = 2.96 tỷ đồng</span></p>
-
-<p>
+<hr>
+<label for="P">Nhập vào số tiền gốc: </label>
+<input style="color: red" id="P" type="number" value="1000000000"><br>
+<label for="r">Nhập vào lãi suất ngân hàng % theo năm: </label>
+<input style="color: red" id="r" type="number" value="6"><span>%</span><br>
+<label for="n">Nhập vào số năm bạn gửi tiết kiệm: </label>
+<input style="color: red" id="n" type="number" value="5"><span>năm</span>
+<hr>
+<input type="button" value="Tính tiền" onclick="tinhTien()">
+<p id="result"></p>
 
     <script>
-
+function tinhTien(){
+    let p=+document.getElementById('P').value;
+    let r=+document.getElementById('r').value;
+    let n=+document.getElementById('n').value;
+    let result=(p*Math.pow((1+r/100),n)).toFixed(2)
+    document.getElementById('result').innerHTML=`Số tiền mà bạn nhận được trong tương lai: <span style="font-weight: bold"> ${result} </span> `
+}
     </script>
 </body>
 </html>

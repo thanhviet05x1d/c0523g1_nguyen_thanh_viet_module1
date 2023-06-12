@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Học về mảng</title>
+</head>
+<body>
+<script>
+    /*
+    Mục tiêu
+Bài đọc cung cấp cho học viên những kiến thức sau:
+
+Khái niệm về mảng
+Các thành phần của mảng
+Cú pháp khai báo mảng
+Cách truy xuất phần tử trong mảng
+Trả về độ dài trong mảng
+Thêm, xoá phần tử trong mảng
+Sắp xếp các phần tử trong mảng
+*/
+    let cars = [
+        "Toyota",
+        "Subaru",
+        "BMW"
+    ]
+    // Thêm phần tử mới
+    cars[3] = 'Huyndai'
+    alert(cars.length);
+
+    // Độ dài của mảng
+    // Trong ví dụ trên, độ dài của mảng sẽ là 4.
+    let countOfCars = cars.length // 4
+    alert(countOfCars);
+
+    // Hàm push() sẽ thêm một phần tử mới vào phần cuối của mảng.
+    // Ví dụ:
+    cars.push("Kia")
+    alert(cars[cars.length - 1]) // "Kia
+
+    // Hàm unshift() sẽ thêm một phần tử mới vào phần đầu của mảng.
+    // Ví dụ:
+    cars.unshift("Ferari")
+    alert(cars[0]) // "Ferari
+    alert(cars)
+
+    // Xoá phần tử của mảng
+    // Hàm pop() sẽ lấy đi phần tử cuối cùng của mảng.
+    //     Ví dụ:
+
+    cars.length // 6
+    let last1 = cars.pop() // Kia
+    cars.length // 5
+    alert(cars)
+    // Hàm shift() sẽ lấy đi phần tử đầu tiên của mảng.
+    //     Ví dụ:
+
+    cars.length // 5
+    let last2 = cars.shift() // "Ferari"
+    cars.length // 4
+    alert(cars)
+
+</script>
+</body>
+</html>

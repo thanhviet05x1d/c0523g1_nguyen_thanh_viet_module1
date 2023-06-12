@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài giảng] Mảng hai chiều (Quiz)</title>
+</head>
+<body>
+<script>
+    // Cách nhập mảng
+    let cities = [
+        ['Sai gon', 'Ha Noi', 'Da Nang'],
+        ['New York', 'California', 'Miami'],
+        ['Tokyo', 'Nagoya', 'Osaka']
+    ]
+    alert(cities);
+    let text=cities[0][1]; // Lấy ra phần từ dòng 1 và cột 2
+alert(text);
+
+// Sử dụng từ khóa New để khởi tạo mảng
+
+    let cacThanhPho = new Array(3);
+    for (i=0;i<3;i++){
+        cacThanhPho[i]=new Array(3);
+    }
+    cacThanhPho[0][0]='Saigon';
+    cacThanhPho[0][1]='HaNoi';
+    cacThanhPho[0][2]='Da Nang';
+    cacThanhPho[1][0]='New York';
+    cacThanhPho[1][1]='California';
+    cacThanhPho[1][2]='Miami';
+    cacThanhPho[2][0]='Tokyo';
+    cacThanhPho[2][1]='Nagoya';
+    cacThanhPho[2][2]='Osaka';
+    alert(cacThanhPho);
+
+    // Sử dụng các vòng lặp đa chiều để duyệt qua các phần từ trong mảng
+    // Ví dụng mảng 2 chiều ta sử dụng 2 vòng lặp For
+
+    for (let i=0;i<cities.length;i++){
+        for (let j=0;j<cities[i].length;j++){
+            document.write(cities[i][j]+"<br/>");
+        }
+    }
+
+
+</script>
+</body>
+</html>

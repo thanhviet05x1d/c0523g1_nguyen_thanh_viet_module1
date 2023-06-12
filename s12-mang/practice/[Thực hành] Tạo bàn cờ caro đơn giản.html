@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Tạo bàn cờ caro đơn giản</title>
+
+</head>
+
+<body>
+<h2>Caro Game Sample</h2>
+<p id='carogame'></p>
+<input type="button" id="change-value" value="Change Value" onclick="changeValue()">
+
+<script>
+
+    // Bước 1: Khai báo mảng 2 chiều với các giá trị:
+    let b = document.getElementById('carogame');
+    let board = []; // Khai bao board là một mảng
+    for (i = 0; i < 6; i++) {
+        // board[i]=new Array(0,0,0,0,0,0,0);
+        board[i] = [0, 0, 0, 0, 0, 0, 0]; // Gán giá trị mỗi phần tử trong boar lại là một mảng
+    }
+    alert(board[1]); // đến đây là Xong việc khai báo mảng 2 chiều
+
+    // Bước 2: Duyệt qua giá trị các phần tử trong mảng
+    let data = '<hr>';
+    for (i = 0; i < 6; i++) {
+        data += '<br/>';
+        for (j = 0; j < 6; j++) {
+            data += board[i][j] + "&nbsp;&nbsp;";
+        }
+    }
+    alert(data);
+    // document.write(data);
+    document.getElementById('carogame').innerHTML=data+'<hr>';
+
+    function changeValue(){
+        let x=+prompt('Mời bạn nhập vào tọa độ x <6');
+        let y=+prompt('Mời bạn nhập vào tọa độ y <6');
+        data ='';
+        board[x][y]='x';
+
+        for (i = 0; i < 6; i++) {
+            data += '<br/>';
+            for (j = 0; j < 6; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;";
+            }
+        }
+        alert(data);
+        // document.write(data);
+        document.getElementById('carogame').innerHTML=data+'<hr>';
+    }
+
+</script>
+</body>
+</html>

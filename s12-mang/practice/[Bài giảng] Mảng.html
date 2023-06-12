@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Học về mảng</title>
+</head>
+<body>
+<script>
+    let arrayV = ["Banana", "Apple", "Orange", "Mango"];
+    alert(arrayV.length); //Hiển thị độ dài của mảng
+    arrayV.push("Lemon"); // Thêm vào phần tử Lemon cuối mảng
+    document.write(arrayV + '</br>');
+    arrayV[arrayV.length-2] = "Cherry"; // Thêm vào phần tử vào cuối mảnh theo cách khác
+    // Cách này sẽ thay thế phần tử Mango bằng Cherry
+    document.write(arrayV + '</br>');
+    // alert(arrayV.length);
+
+    let text = '';
+    // Duyệt qua phần tử các mảng bằng vòng lặp For
+    for (i = 0; i < arrayV.length; i++) {
+        text += arrayV[i] + '</br>'
+    }
+    document.write(text);
+
+    // duyệt qua phần tử các mảng bằng vòng lặp ForEach
+    let numbers = [4, 9, 16, 25];
+    numbers.forEach(function (item) {
+        document.write(item + '<br/>')
+    });
+
+</script>
+</body>
+</html>

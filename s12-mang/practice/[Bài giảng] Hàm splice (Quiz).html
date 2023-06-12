@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài giảng] Hàm splice (Quiz)</title>
+
+</head>
+
+<body>
+
+<script>
+    let arrs = ['coe', 'gym', 'vn'];
+    console.log(arrs);
+    arrs.splice(1, 1);
+    console.log(arrs);
+
+    let students = [{
+        id: 1,
+        name: 'Nguyễn Văn A',
+        address: 'Hà Nội'
+    },
+        {
+            id: 2,
+            name: 'Nguyễn Văn B',
+            address: 'Đà Nẵng'
+        }
+    ]
+    console.log(students);
+    for (i = 0; i < students.length; i++) {
+        if (students[i].id == 2) {
+            students.splice(i, 1);
+        }
+    }
+    console.log(students);
+
+
+</script>
+</body>
+</html>
