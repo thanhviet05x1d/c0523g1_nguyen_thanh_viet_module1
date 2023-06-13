@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Hàm kiểm tra số nguyên tố</title>
+
+</head>
+<body>
+<h2>In ra một dãy số nguyên tố</h2>
+
+<script>
+    let n=+prompt('Mời bạn nhập vào giới hạn của số nguyên tố');
+    for (let i = 0; i < n; i++) {
+        if (isPrime(i)==true){
+            document.write(i+'<br/>');
+        }
+    }
+    function isPrime(number) {
+        let dem = 0;
+        for (let i = 1; i <= number; i++) {
+            if (number % i == 0) {
+                dem++;
+            }
+        }
+        if (dem == 2) {
+           return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

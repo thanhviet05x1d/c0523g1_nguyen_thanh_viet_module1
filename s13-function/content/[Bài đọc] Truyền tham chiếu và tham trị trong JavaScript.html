@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài giảng] Hàm trong javascript</title>
+
+</head>
+<body>
+<p id="hello">Click me</p>
+<script>
+    function square(x) {
+        x = x * x;
+    }
+
+    let y = 10;
+    square(y); // việc gọi này không có ý nghĩa gì hết.
+    console.log(y); // -- no change
+
+    // Truyền tham chiếu (Passing by value of references)
+    function turnOn(machine) {
+        // machine.isOn = true;
+
+        // Ý của dòng này là thay đổi thuộc tính isOn là True hoặc False
+        // Còn ba dòng dưới đây là (khai báo/ thay đổi) toàn bộ thuộc tính của đối tượng
+
+        // machine={
+        //     isOn: true
+        // };
+    }
+    let computer = {
+        isOn: false
+    };
+
+    turnOn(computer); // Đoạn này tự hiểu đối số computer được đưa vào thay cho machine
+    console.log(computer.isOn); // true;
+
+    // // Cách viết dưới thì lại là một kiểu khác
+    // function turnOn(machine) {
+    //     machine = {
+    //         isOn: true
+    //     };
+    // }
+    // let computer = {
+    //     isOn: false
+    // };
+    // console.log(computer.isOn); // false;
+
+</script>
+</body>
+</html>

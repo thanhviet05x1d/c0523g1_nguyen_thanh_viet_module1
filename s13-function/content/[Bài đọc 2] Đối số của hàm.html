@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài giảng] Hàm trong javascript</title>
+
+</head>
+<body>
+<!--<p id="text-value" >Xin chào Việt Nam</p>-->
+<input type="text" id="text-value" value="Xin chào việt Nam"></input>
+<script>
+    //     function myFunction() {
+    //     let firstArg = arguments[0];
+    //     let secondArg = arguments[1];
+    //     alert("firstArg is: " + firstArg);
+    //     alert("secondArg is: " + secondArg);
+    // }
+    //     myFunction("hello","world");
+
+        function  myTestFunction(){
+            let myFirstArg=arguments[0];
+            let mySecondArg=arguments[1];
+            let myThirdArg=arguments[2];
+            alert('myFirstArg is: '+myFirstArg);
+            alert('mySecondArg is: '+mySecondArg);
+            alert('myThirdArg is: '+myThirdArg);
+        }
+
+        // data=document.getElementById('text-value').value;
+        // myTestFunction(data);
+
+        myTestFunction('Xin chào','Việt Nam','tổ quốc tôi');
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài giảng] Hàm trong javascript</title>
+
+</head>
+<body>
+<p id="hello">Click me</p>
+<script>
+
+    // function multiplyNums(x) {
+    //     return x * 2;
+    // }
+    // let theNumber = 10;
+    // let result = multiplyNums(theNumber);
+    // alert(result);
+
+    function myMultiplyNums(x) {
+        return x * 2;
+    }
+
+    let myTheNumber = 10;
+    let result = myMultiplyNums(myTheNumber);
+    alert(result);
+
+    // function myFunction(x) {
+    //     if (x == 1){
+    //         return true;
+    //     }else {
+    //         return false;
+    //     }
+    // }
+    //
+
+    function yourFunction(x) {
+        if (x == 1) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    let yourX = +prompt("Nhập vào giá trị");
+    alert(yourFunction(yourX));
+
+
+    // Tuy vậy, bạn cần chú ý vị trí đặt lệnh return, vì khi gặp lệnh return,
+    // hàm sẽ trả lại giá trị và không thực thi những dòng mã sau đó.
+    // Ví dụ, đoạn mã như sau sẽ không thực thi như ý định của bạn: Đoạn mã này sẽ không bao giờ khởi tạo biến secondNum.
+
+    function myFunction() {
+        let count = 0;
+        let firstNum = 48;
+        return;
+        var secondNum = 109; // Biến này khai báo cho vui, không có ý nghĩa
+    }
+
+    // Gọi hàm
+    // Bạn sẽ luôn gọi hàm với một vài đối số hoặc chỉ với cặp ngoặc trống như sau:
+
+    function orderFruit() {
+        let total = 0;
+        // Call another function to place order
+        return total;
+    }
+
+    let yourresult = orderFruit();
+    alert("The total is " + yourresult);
+
+    // Hàm vô danh hoặc không được đặt tên
+    // Các hàm bạn đã thấy ở trên đều được định nghĩa theo chuẩn.
+    // Tuy nhiên, JavaScript không đòi hỏi hàm phải được định nghĩa theo cách đó. Ví dụ, với cách tạo hàm không tên hay còn gọi là hàm vô danh, hàm có thể được định nghĩa và gắn với biến như sau:
+
+        let divNums = function (firstNum, secondNum) {
+            return firstNum/secondNum;
+        }
+        let myKetQua=divNums(2,3);
+        alert(myKetQua);
+
+    // Bao đóng – Closure
+    // Trong JavaScript, các hàm con bên trong có quyền truy cập đến các biến của hàm cha bên ngoài.
+    // Closure chỉ sự tồn tại của các biến bên ngoài ngữ cảnh thực thi thông thường của hàm.
+    // Closure thường được vô ý tạo ra và có thể gây rò rỉ bộ nhớ trong Windows Internet
+    // Explorer nếu không được xử lý đúng cách. Tuy nhiên, closure lại là một trong
+    // những tính năng mạnh trong javascript.
+    // Xem xét ví dụ sau:
+
+    function myFunction1() {
+        let myNum = 10;
+        function showNum() {
+            alert(myNum);
+        }
+        return showNum();
+    }
+    let yourCallFunc = myFunction1();
+    myFunction1();
+
+    // Trong ví dụ này, hàm showNum có quyền truy cập tới biến myNum được tạo ở hàm bên ngoài,
+    // hàm myFunction. Biến callFunc được tạo trong ngữ cảnh toàn cục và chứa một tham chiếu tới hàm showNum.
+    // Khi biến callFunc được tạo, nó lập tức có quyền truy cập tới biến myNum.
+    // Closure có thể được sử dụng để giả lập phương thức private bên trong đối tượng,
+    // và có thể áp dụng trong các hàm xử lý sự kiện.
+
+</script>
+</body>
+</html>

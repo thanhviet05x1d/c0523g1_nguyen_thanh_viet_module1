@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Chuyển đổi giữa feet và meters</title>
+
+</head>
+<style>
+    input{
+        text-align: right;
+        width: 100px;
+    }
+</style>
+<body>
+<h2>Chuyển đổi hệ đơn vị</h2>
+<input type="number" id="input-foot"> <label for="input-foot">Foot</label> <span id="output-meter">= </span><br/>
+<hr>
+<input type="number" id="input-met"> <label for="input-met">Meter</label> <span id="output-foot" >= </span><br/>
+<hr>
+<button id="changeVale" onclick="changeValue()">Chuyển đổi</button>
+<script>
+    function changeValue(){
+        let foot=document.getElementById('input-foot').value;
+        document.getElementById('output-meter').innerHTML='= '+footToMeter(foot).toFixed(2) +' meter';
+        let meter=document.getElementById('input-met').value;
+        document.getElementById('output-foot').innerHTML='= '+ meterToFoot(meter).toFixed(2) +' foot';
+    }
+    function footToMeter(foot){
+        return  0.305 * foot;
+    }
+
+    function meterToFoot(meter){
+        return  3.279 * meter;
+    }
+
+</script>
+</body>
+</html>
