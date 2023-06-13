@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Chuyển đổi giữa feet và meters</title>
+
+</head>
+<style>
+    input {
+        text-align: center;
+    }
+</style>
+<body>
+<div style="text-align: center">
+    <input type="number" id="number1" placeholder="Enter number 1"><br/>
+    <input type="number" id="number2" placeholder="Enter number 2"><br/>
+ <hr>
+    <input type="button" value="compareTwoNumber" onclick='compareTwoNum(document.getElementById("number1").value, document.getElementById("number2").value)'><br/>
+    <span id="result"></span>
+</div>
+<script>
+    // Bài 3: Tạo hàm nhận vào hai tham số. Nếu giá trị của tham số thứ nhất lớn hơn tham số thứ hai,
+    // hiển thị hộp thoại thông báo cho người dùng.
+    //     Nếu giá trị của tham số thứ nhất nhỏ hơn hoặc bằng tham số thứ hai, trả về tổng của hai tham số.
+    function compareTwoNum(number1,  number2) {
+        number1 = parseFloat(number1);
+        number2 = parseFloat(number2);
+        if (number1>number2){
+            alert(`${number1} lớn hơn số ${number2}`);
+        }else {
+            return document.getElementById("result").innerHTML='Kết quả là: '+(number1+number2);
+        }
+    }
+
+
+</script>
+</body>
+</html>

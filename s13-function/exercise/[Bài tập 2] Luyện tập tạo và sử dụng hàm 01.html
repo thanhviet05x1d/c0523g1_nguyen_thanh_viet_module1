@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Chuyển đổi giữa feet và meters</title>
+
+</head>
+<style>
+    input {
+        text-align: center;
+        width: 80px;
+    }
+</style>
+<body>
+<div style="text-align: center">
+    <input type="number" placeholder="Enter a number" oninput="doubleNumber(this.value)"
+           onchange="doubleNumber(this.value)">
+    <hr>
+    <span id="result"></span>
+</div>
+<script>
+    // Bài 2: Tạo hàm nhận vào một đối số dạng số, tăng giá trị đối số đó lên 1 và trả lại giá trị cho lời gọi hàm.
+    //     Gọi hàm từ trong phần <body> của trang web và hiển thị kết quả lên màn hình.
+    function doubleNumber(number) {
+        number = parseFloat(number);
+        document.getElementById('result').innerHTML = (number + 1);
+    }
+
+
+</script>
+</body>
+</html>

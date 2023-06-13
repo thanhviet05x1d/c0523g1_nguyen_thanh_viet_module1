@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập 5]</title>
+
+</head>
+<style>
+    input {
+        text-align: center;
+    }
+</style>
+<body>
+<input type="text" id="input-text"><br/>
+<input type="button" value="Check" onclick="result()">
+<hr>
+<span id="result"></span>
+<script>
+    // Bài 4: Thêm các hàm alert() vào những vị trí thích hợp  trong đoạn mã sau để
+    // bạn có thể nhìn thấy giá trị của biến result trước và sau lời gọi hàm. Đoạn mã có dạng như sau:
+
+    let myArr1 = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let myArr2 = ['Ursa Minor', 'Taurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+
+    function result() {
+        let yourStar = document.getElementById("input-text").value;
+        document.getElementById("result").innerHTML = searchStar(yourStar);
+    }
+
+    function searchStar(yourStar) {
+       let count=0;
+        for (let i = 0; i < myArr1.length; i++) {
+            if (yourStar == myArr1[i]) {
+                return myArr2[i];
+               count++;
+            }
+        }
+        if (count==0){
+            alert("Không tìm thấy thông tin");
+        }
+    }
+debugger;
+</script>
+</body>
+</html>
