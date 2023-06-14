@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+
+</head>
+<body>
+<h2>Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.</h2>
+
+<script>
+    let n1 = +prompt('Số 1');
+    let n2 = +prompt('Số 2');
+    let n3 = +prompt('Số 3');
+
+    alert('Số lớn nhất là ' + maxNumber(n1, n2, n3));
+
+
+    function maxNumber(n1, n2, n3) {
+        if (n1 > n2) {
+            if (n1 > n3) {
+                return n1
+            } else {
+                return n3
+            }
+        } else if (n2 > n1) {
+            if (n2 > n3) {
+                return n2
+            } else {
+                return n3
+            }
+        } else if (n3 > n1) {
+            if (n3 > n2) {
+                return n3
+            } else {
+                return n2
+            }
+        } else {
+            return '3 số bằng nhau'
+        }
+    }
+
+</script>
+</body>
+</html>

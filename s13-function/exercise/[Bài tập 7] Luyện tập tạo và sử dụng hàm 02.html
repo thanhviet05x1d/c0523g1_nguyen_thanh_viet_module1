@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+
+</head>
+<body>
+<h2>Bài 7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó.</h2>
+
+<script>
+    let myArr = [1, 2];
+    console.log(changePosition(myArr));
+
+    function changePosition(arr) {
+        let temp = 0;
+        temp = arr[0];
+        arr[0] = arr[1];
+        arr[1] = temp;
+        return arr;
+    }
+
+</script>
+</body>
+</html>

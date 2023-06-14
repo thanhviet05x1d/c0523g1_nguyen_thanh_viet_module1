@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3: Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.</title>
+
+</head>
+<body>
+<h2>Bài 3: Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.</h2>
+
+<script>
+    let n = +prompt('Mời bạn nhập vào 1 số để tính giai thừa');
+    if (n < 0) {
+        alert('Mời bạn nhập lại số n > 0');
+    } else {
+        alert('Giai thừa của ' + n + ' = ' + factorial(n));
+
+    }
+
+    function factorial(num) {
+        let result = 1;
+        for (let i = 1; i <= num; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    // function factorial1(num) {
+    //     return num * factorial1(num - 1);
+    // }
+
+</script>
+</body>
+</html>
