@@ -8,14 +8,17 @@
 </head>
 <body>
 <script>
-    let data = ''
+    let data = '';
+    let count = 0;
     let a = ['c', 's', 'c', 2, 6, 1];
     alert('Chiều dài mảng là ' + a.length);
     for (let i = 0; i < a.length; i++) {
-        if (typeof a[i] == "number") {
+        if (isNaN(a[i]) === false) {
             data += i + ',';
+            count++;
         }
     }
+    alert("Mảng có " + count + ' ký tự số');
     alert("Các vị trí phần tử số " + data);
 </script>
 </body>
