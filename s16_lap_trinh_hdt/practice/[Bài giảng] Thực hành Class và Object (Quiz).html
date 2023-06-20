@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Chuyển đổi nhiệt độ</title>
+
+</head>
+<body>
+<h2>[Bài giảng] Thực hành Class và Object (Quiz)</h2>
+
+<script>
+    // function Student(id,name,address){
+    //     this.id=id;
+    //     this.name=name;
+    //     this.address=address;
+    //     this.getInfor =function (){
+    //         return  "Id = "+this.id+" Name = "+this.name +" Address = "+this.address;
+    //     }
+    // }
+    // let student = new Student(1,"Nguyễn Thanh Việt","Đà Nẵng");
+    // console.log(student.getInfor());
+
+    let student = {
+        id: 1,
+        name: "nguyễn thanh việt",
+        address: "Đà Nẵng",
+        getInfor: function () {
+            return "Id = " + this.id + " Name = " + this.name + " Address = " + this.address;
+        }
+    }
+    console.log(student);
+    console.log(student.getInfor());
+
+</script>
+</body>
+</html>

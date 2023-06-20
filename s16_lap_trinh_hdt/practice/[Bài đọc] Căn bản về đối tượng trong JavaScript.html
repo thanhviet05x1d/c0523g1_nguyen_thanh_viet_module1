@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài đọc] Căn bản về đối tượng trong JavaScript</title>
+
+</head>
+<body>
+<h2>[Bài đọc] Căn bản về đối tượng trong JavaScript</h2>
+
+<script>
+    // let person = {
+    //     name: ['Bob', 'Smith'],
+    //     age: 32,
+    //     gender: 'male',
+    //     interests: ['music', 'skiing'],
+    //     bio: function () {
+    //         alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+    //     },
+    //     greeting: function () {
+    //         alert('Hi! I\'m ' + this.name[0] + '.');
+    //     }
+    // };
+    // person.bio();
+
+    // let person = {
+    //     name: ['Viet', 'Nguyen'],
+    //     age: 36,
+    //     sex: 'male',
+    //     interest: ['Food', 'Sleep'],
+    //     biography: function () {
+    //         alert('Tôi tên là ' + this.name[0] + this.name[1] + ', ' + this.age + ' tuổi. Sở thích của tôi là ' + this.interest[0] + ' và ' + this.interest[1]);
+    //     },
+    //     greeting: function (){
+    //         alert("Xin chào bạn tôi tên là " + this.name[0] + this.name[1]);
+    //     }
+    // };
+    // person.biography();
+    // person.greeting();
+
+
+    // let person = {
+    //     name:{
+    //         first:'Viet',
+    //         last:'Nguyen',
+    //     },
+    //     age: 36,
+    //     sex: 'male',
+    //     interest: ['Food', 'Sleep'],
+    //     biography: function () {
+    //         alert('Tôi tên là ' + this.name.first + this.name.last + ', ' + this.age + ' tuổi. Sở thích của tôi là ' + this.interest[0] + ' và ' + this.interest[1]);
+    //     },
+    //     greeting: function (){
+    //         alert("Xin chào bạn tôi tên là " + this.name.first + this.name.last);
+    //     }
+    // };
+    //
+    // person.greeting();
+    // person.age=37;
+    // person['name']['first']='Ánh';
+    // console.log(person.name.first);
+    // console.log(person.age);
+    //
+    // person['eyes'] = 'hazel';
+    // person.farewell = function() { alert("Bye everybody!"); }
+    // person.biography();
+    // console.log(person['eyes']);
+    // person.farewell();
+    // let myDataName = 'height'; // thêm một thuộc tính cho đối tượng person;
+    // let myDataValue = '1.75m'; // Gán giá trị cho thuộc tính đó là 1.75m
+    // person[myDataName] = myDataValue;
+    // console.log(person.height);
+
+    let person1 = {
+        name: 'Chris',
+        greeting: function() {
+            alert('Hi! I\'m ' + this.name + '.');
+        }
+    }
+
+    let person2 = {
+        name: 'Brian',
+        greeting: function() {
+            alert('Hi! I\'m ' + this.name + '.');
+        }
+    }
+
+    person1.greeting();
+    person2.greeting();
+</script>
+</body>
+</html>
