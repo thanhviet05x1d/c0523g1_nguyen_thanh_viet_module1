@@ -7,90 +7,74 @@
 </head>
 <body>
 <h2>[Bài tập] Xây dựng lớp mô tả điện thoại</h2>
-<div style="text-align: center">
-<table>
-    <tr>
-        <td><input type="button" value="1n" onclick=""></td>
-        <td><input type="button" value="1i" onclick=""></td>
-    </tr>
-    <tr>
-        <td><input type="button" value="2n" onclick=""></td>
-        <td><input type="button" value="2i" onclick=""></td>
-    </tr>
-    <tr>
-        <td><input type="button" value="3n" onclick=""></td>
-        <td><input type="button" value="3i" onclick=""></td>
-    </tr>
-    <tr>
-        <td><input type="button" value="4n" onclick=""></td>
-        <td><input type="button" value="4i" onclick=""></td>
-    </tr>
-    <tr>
-        <td><input type="button" value="5n" onclick=""></td>
-        <td><input type="button" value="5i" onclick=""></td>
-    </tr>
-    <tr>
-        <td><input type="button" value="6n" onclick=""></td>
-        <td><input type="button" value="6i" onclick=""></td>
-    </tr>
-    <tr>
-        <td><input type="button" value="7n" onclick=""></td>
-        <td><input type="button" value="7i" onclick=""></td>
-    </tr>
-</table>
 <script>
     class Mobile {
-        constructor(battery, memo_progress, memo_inbox, memo_send) {
+        constructor(battery, draft, inbox, outbox, status) {
             this.battery = battery;
-            this.memo_progress = memo_progress;
-            this.memo_inbox = memo_inbox;
-            this.memo_send = memo_send;
-            this.message = "";
+            this.draft = draft;
+            this.inbox = inbox;
+            this.outbox = outbox;
+            this.status = status;
         }
 
-        setMessage(message) {
-            this.message = message;
+        checkStatus() {
+            if (this.status) {
+                alert('Phone is ON.');
+            } else {
+                alert('Phone is OFF');
+            }
         }
 
-        getMessage() {
-            return this.message;
+        turnOn() {
+            this.status = true;
+            this.battery++;
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+
+        charge(battery) {
+            this.battery += battery;
+        }
+
+        setDraftMessage(message) {
+            if (this.status) {
+                this.draft.unshift(message);
+                this.battery++;
+            } else {
+                alert('Phone is getting Off.')
+            }
         }
 
         sendMessage(message, mobile) {
-            mobile.setMessage(message);
+            if (this.status) {
+                this.outbox.push(message);
+                mobile.inbox.unshift(message);
+                this.battery++;
+            } else {
+                alert('Phone is getting Off.')
+            }
         }
 
-        statusOfMobile() {
-            return battery > 0; // Khóc thét
-        };
-
-        turnOn() {
-            alert('Điện thoại đang bật'); // Khóc thét
-        };
-
-        turnOff() {
-            alert('Điện thoại đang tắt'); // Khóc thét
-        };
-
-        charge() {
-            alert('Điện thoại đang sạc' + battery); // Khóc thét
-        };
-
-        showBattery() {
-            alert('Pin còn lại' + battery); // Khóc thét
+        getMessage() {
+            if (this.status) {
+                return  this.inbox.toString();
+                this.battery++;
+            } else {
+                alert('Phone is getting Off.')
+            }
         }
-
-        warning() {
-            alert('Cảnh báo!') // Khóc thét
-        };
-
     }
 
-    const Android = new Mobile(100, '', '', '');
-    const Iphone = new Mobile(100, '', '', '');
-    Android.sendMessage('Tin nhắn từ Android', Iphone);
-    Iphone.getMessage();
-    console.log(Iphone.getMessage());
+    let nokia = new Mobile(100, [], [], [], false);
+    let iphone = new Mobile(90, [], [], [], false);
+    nokia.turnOn();
+    iphone.turnOn();
+    nokia.setDraftMessage('Tin nhan nhap cho gui di.');
+    nokia.sendMessage('Tin nhan gui tu Nokia.',iphone);
+    iphone.getMessage();
+    console.log(iphone.getMessage());
 
 </script>
 </div>
