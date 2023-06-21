@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Funny circles</title>
+
+</head>
+<body>
+<h2>[Thực hành] Funny circles</h2>
+
+<script>
+    function Temperature(doC) {
+        this.doC = doC;
+        this.changeCtoF = function () {
+            return 9 / 5 * doC + 32;
+        }
+        this.changeCtoK = function () {
+            return doC + 273.15;
+        }
+    }
+
+    let temperrature = new Temperature(25);
+    alert("Nhiệt độ F= " + temperrature.changeCtoF());
+    alert("Nhiệt độ K= " + temperrature.changeCtoK());
+
+</script>
+</body>
+</html>

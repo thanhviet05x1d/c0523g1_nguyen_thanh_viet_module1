@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[[Bài tập] Xây dựng lớp mô tả điện thoại</title>
+
+</head>
+<body>
+<h2>[Bài tập] Xây dựng lớp mô tả điện thoại</h2>
+<div style="text-align: center">
+<table>
+    <tr>
+        <td><input type="button" value="1n" onclick=""></td>
+        <td><input type="button" value="1i" onclick=""></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="2n" onclick=""></td>
+        <td><input type="button" value="2i" onclick=""></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="3n" onclick=""></td>
+        <td><input type="button" value="3i" onclick=""></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="4n" onclick=""></td>
+        <td><input type="button" value="4i" onclick=""></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="5n" onclick=""></td>
+        <td><input type="button" value="5i" onclick=""></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="6n" onclick=""></td>
+        <td><input type="button" value="6i" onclick=""></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="7n" onclick=""></td>
+        <td><input type="button" value="7i" onclick=""></td>
+    </tr>
+</table>
+<script>
+    class Mobile {
+        constructor(battery, memo_progress, memo_inbox, memo_send) {
+            this.battery = battery;
+            this.memo_progress = memo_progress;
+            this.memo_inbox = memo_inbox;
+            this.memo_send = memo_send;
+            this.message = "";
+        }
+
+        setMessage(message) {
+            this.message = message;
+        }
+
+        getMessage() {
+            return this.message;
+        }
+
+        sendMessage(message, mobile) {
+            mobile.setMessage(message);
+        }
+
+        statusOfMobile() {
+            return battery > 0; // Khóc thét
+        };
+
+        turnOn() {
+            alert('Điện thoại đang bật'); // Khóc thét
+        };
+
+        turnOff() {
+            alert('Điện thoại đang tắt'); // Khóc thét
+        };
+
+        charge() {
+            alert('Điện thoại đang sạc' + battery); // Khóc thét
+        };
+
+        showBattery() {
+            alert('Pin còn lại' + battery); // Khóc thét
+        }
+
+        warning() {
+            alert('Cảnh báo!') // Khóc thét
+        };
+
+    }
+
+    const Android = new Mobile(100, '', '', '');
+    const Iphone = new Mobile(100, '', '', '');
+    Android.sendMessage('Tin nhắn từ Android', Iphone);
+    Iphone.getMessage();
+    console.log(Iphone.getMessage());
+
+</script>
+</div>
+</body>
+</html>

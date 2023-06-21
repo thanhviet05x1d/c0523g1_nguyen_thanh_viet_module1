@@ -13,15 +13,42 @@
     //1. Sử dụng hàm
     //Khai báo lớp Apple với các thuộc tính
     //Phương thức getAppleInfo()
-    function Apple(type) {
-        this.type = type;
-        this.color = 'red';
-        this.getInfo = getAppleInfo;
-//Khai báo hàm get Apple Info();
-        // Khuyến nghị: đây là cách không nên dùng
-        // đọc tiếp sẽ rõ
+    //     function Apple(type) {
+    //         this.type = type;
+    //         this.color = 'red';
+    //         this.getInfo = getAppleInfo;
+    // //Khai báo hàm get Apple Info();
+    //         // Khuyến nghị: đây là cách không nên dùng
+    //         // đọc tiếp sẽ rõ
+    //     }
+    //
+    //     function getAppleInfo() {
+    //         return this.color + ' ' + this.type + ' apple';
+    //     }
+    //
+    //     let apple = new Apple('macintosh');
+    //     apple.color = "reddish";
+    //     alert(apple.getInfo());
+    debugger;
 
+    // Học và làm lại
+    function C0523g1(name) {
+        this.name = name;
+        this.color = '';
+        this.age = '';
+        this.genitive = '';
+        this.getInfo = getC0523g1Info;
     }
+
+    function getC0523g1Info() {
+        return this.name + ', ' + this.age + ' tuổi ' + ' thích màu ' + this.color + ' ,' + this.genitive + ' CodeGym';
+    }
+
+    let viet = new C0523g1('Việt'); // Khai báo một biến đối tượng thuộc lớp C0523g1, type = Việt
+    viet.color = 'Hồng'; // Đổi thuộc tính color cho viet là Xanh
+    viet.age = 36;
+    viet.genitive = 'Gét sự giả dối';
+    alert(viet.getInfo()); // Show ra thông tin của viet
 
 </script>
 </body>

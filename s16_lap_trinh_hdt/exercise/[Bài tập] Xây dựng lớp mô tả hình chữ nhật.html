@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Funny circles</title>
+
+</head>
+<body>
+<h2>[Thực hành] Funny circles</h2>
+<!--Bước 1: Tạo một trang HTML với thẻ canvas.-->
+<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+<input type="button" onclick="changeSize()" value="Change">
+<script>
+    function Rectangle(len, wid) {
+        this.length = len;
+        this.width = wid;
+        this.getArea = function () {
+            return len * wid;
+        };
+        this.getPerimeter = function () {
+            return 2 * (len + wid);
+        }
+        this.draw = function () {
+            let ctx = document.getElementById('myCanvas').getContext('2d');
+            ctx.beginPath();
+            ctx.rect(200, 200, len, wid);
+            ctx.stroke();
+        }
+    }
+
+    let rectangle = new Rectangle(300, 100);
+    rectangle.draw();
+
+    function changeSize() {
+        let len = +prompt('Nhập vào chiều dài của hcn');
+        let wid = +prompt('Nhập vào chiều rộng của hcn');
+        alert(rectangle.getArea(len, wid));
+        alert(rectangle.getPerimeter(len, wid));
+        rectangle.draw();
+    }
+
+</script>
+</body>
+</html>

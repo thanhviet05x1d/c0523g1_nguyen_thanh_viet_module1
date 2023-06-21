@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài đọc] 3 cách định nghĩa lớp trong JavaScript</title>
+
+</head>
+<body>
+<h2>[Bài đọc] 3 cách định nghĩa lớp trong JavaScript</h2>
+
+
+<script>
+    // CÁCH 1. Sử dụng hàm
+    // Khai báo lớp Apple với các thuộc tính
+    // khai báo luôn phương thức getInfo là một function
+    // function Apple(type) {
+    //     this.type = type;
+    //     this.color = 'red';
+    //     this.getInfo = function () {
+    //         return this.color + ' ' + this.type + ' apple';
+    //     }
+    // }
+
+    // let apple = new Apple('macintosh');
+    // apple.color = "reddish";
+    // alert(apple.getInfo());
+    // Một hạn chế của 1.1 là hàm getInfo() được tạo ra mỗi lần bạn tạo lại một đối tượng mới.
+    // Thỉnh thoảng đó có thể là cách bạn muốn nhưng rất hiếm gặp,
+    // điều này đồng nghĩa là nó sẽ tiêu tốn nhiều tài nguyên bộ nhớ hơn.
+    // Một cách làm tiết kiệm hơn là thêm phương thức getInfo() vào bên trong prototype của hàm khởi tạo.
+
+    // Cách 1. Sử dụng hàm
+    // function Apple(type) {
+    //     this.type = type;
+    //     this.color = 'red';
+    // }
+    //
+    // Apple.prototype.getInfo = function () {
+    //     return this.type + ' ' + this.color + ' apple';
+    // }
+    // let apple = new Apple('macintosh');
+    // apple.color = "reddish";
+    // alert(apple.getInfo());
+
+    // CÁCH 2. Sử dụng object literals
+
+    // let apple ={
+    //     type: 'macintosh',
+    //     color: 'red',
+    //     getInfo: function (){
+    //         return this.type+' '+ this.color;
+    //     }
+    // }
+    // apple.color='green';
+    // alert(apple.getInfo());
+
+    // CÁCH 3. Singleton sử dụng một hàm
+
+    let apple=new function (){
+        this.type='';
+        this.color='red';
+        this.getInfo = function (){
+            return this.type+' '+this.color;
+
+        }
+    }
+    apple.type='Iphone 3';
+    alert(apple.getInfo());
+</script>
+</body>
+</html>

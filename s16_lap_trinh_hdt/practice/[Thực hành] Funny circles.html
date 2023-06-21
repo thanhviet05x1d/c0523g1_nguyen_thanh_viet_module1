@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Funny circles</title>
+
+</head>
+<body>
+<h2>[Thực hành] Funny circles</h2>
+<!--Bước 1: Tạo một trang HTML với thẻ canvas.-->
+<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    //Bước 2: Vẽ một hình tròn đơn giản với kích thước cố định
+    debugger;
+    let Circle = function (x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
+    // function createCirle() {
+    //     let ctx = document.getElementById('myCanvas').getContext('2d');
+    //     let circle = new Circle(500, 500, 8);
+    //     ctx.beginPath();
+    //     ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+    //     ctx.fill();
+    //     console.log(circle);
+    // }
+
+    // createCirle();
+
+    // Bước 3: Vẽ hình tròn với bán kính ngẫu nhiên
+    // function createCirle() {
+    //     let ctx = document.getElementById('myCanvas').getContext('2d');
+    //     let radius=Math.floor(Math.random()*80);
+    //     let circle1 = new Circle(200, 200, radius);
+    //     ctx.beginPath();
+    //     ctx.arc(circle1.x, circle1.y, circle1.radius, 0, 2 * Math.PI);
+    //     ctx.fill();
+    // }
+    //
+    // createCirle();
+
+    //Bước 4: Vẽ hình tròn với màu ngẫu nhiên
+
+    // Tạo ngẫu nhiên mã màu.
+    function getRandomHex() {
+        return Math.floor(Math.random() * 255);
+    }
+
+    // Lấy mã màu ngẫu nhiên RGB
+    function getRandomColor() {
+        let red = getRandomHex();
+        let green = getRandomHex();
+        let black = getRandomHex();
+        return "rgb(" + red + "," + green + "," + black + ")";
+    }
+
+    // // Tiến hành vẽ hình tròn
+    // function createCirle() {
+    //     let ctx = document.getElementById('myCanvas').getContext('2d');
+    //     let radius=Math.floor(Math.random()*80);
+    //     let circle = new Circle(200, 200, radius);
+    //     ctx.beginPath();
+    //     ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+    //     let color=getRandomColor();
+    //     ctx.fillStyle= color;
+    //     ctx.fill();
+    // }
+    //
+    // createCirle();
+
+    // Tiến hành vẽ hình tròn với vị trí ngẫu nhiên
+    function createCirle() {
+        let ctx = document.getElementById('myCanvas').getContext('2d');
+        let radius = Math.floor(Math.random() * 80);
+        let x = Math.floor(Math.random() * innerWidth);
+        let y = Math.floor(Math.random() * innerHeight);
+        let circle = new Circle(x, y, radius);
+        ctx.beginPath();
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+        let color = getRandomColor();
+        ctx.fillStyle = color;
+        ctx.fill();
+
+    }
+
+    // Tạo nhiều hình tròn với một vòng lặp.
+    function createMultiCircle() {
+        for (let i = 0; i < 30; i++) {
+            createCirle();
+        }
+    }
+
+    // Tạo hiệu ứng di chuyển cho các vòng tròn
+    function loop() {
+        createMultiCircle();
+        window.requestAnimationFrame(loop);
+    }
+
+    loop();
+</script>
+</body>
+</html>

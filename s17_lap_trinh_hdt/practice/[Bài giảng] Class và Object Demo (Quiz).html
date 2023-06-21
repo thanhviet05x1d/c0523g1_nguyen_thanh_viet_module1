@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài giảng] Class và Object Demo (Quiz)</title>
+
+</head>
+<body>
+<h2>[Bài giảng] Class và Object Demo (Quiz)</h2>
+
+
+<script>
+class Mobile{
+    constructor(id,name) {
+        this.id=id;
+        this.name=name;
+        this.message='';
+    }
+    getMessage(){
+        return this.message;
+    }
+    setMessage(message){
+        this.message=message;
+    }
+    sendMessage(message,mobile){
+        mobile.setMessage(message);
+    }
+}
+const iOS=new Mobile(1,'IP14ProMax');
+const android=new Mobile(2,'Samsung');
+iOS.sendMessage('Tin nhắn gửi từ '+iOS.name,android);
+android.getMessage();
+console.log(android.getMessage());
+</script>
+
+</body>
+</html>
