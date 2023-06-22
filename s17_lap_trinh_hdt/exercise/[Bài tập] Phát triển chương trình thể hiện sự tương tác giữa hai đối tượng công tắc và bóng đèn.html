@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Phát triển chương trình thể hiện sự tương tác giữa hai đối tượng công tắc và bóng đèn</title>
+
+</head>
+<body>
+<h2>[Bài tập] Phát triển chương trình thể hiện sự tương tác giữa hai đối tượng công tắc và bóng đèn</h2>
+
+<script>
+    class SwitchButton {
+        constructor(lamp, status) {
+            this.status = status
+            this.lamp = lamp;
+        }
+
+        setLamp(lamp) {
+            this.lamp = lamp;
+        }
+
+        getLamp() {
+            return this.lamp;
+        }
+
+// Ông nội ni khai báo không biết để làm chi
+        connectToLamp(ElectricLamp) {
+            this.lamp = ElectricLamp;
+        }
+
+        switchOff() {
+            this.lamp.status = false;
+            return this.status = false;
+        }
+
+        switchOn() {
+            this.lamp.status = true;
+            return this.status = true;
+        }
+    }
+
+    class ElectricLamp {
+        constructor(status) {
+            this.status = status;
+        }
+
+        turnOn() {
+            return this.status = true;
+        }
+
+        turnOff() {
+            return this.status = false;
+        }
+    }
+
+    let electric_lamp_1 = new ElectricLamp(false);
+    console.log(electric_lamp_1);
+    let switch_button_1 = new SwitchButton(electric_lamp_1, false);
+    console.log(switch_button_1);
+    for (let i = 0; i < 10; i++) {
+        switch_button_1.switchOn();
+        console.log(switch_button_1.switchOn());
+        switch_button_1.switchOff();
+        console.log(switch_button_1.switchOff());
+    }
+
+</script>
+
+</body>
+</html>
