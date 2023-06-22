@@ -6,7 +6,6 @@
 
 </head>
 <body>
-<h2>[Bài tập] Game đơn giản - di chuyển đối tượng</h2>
 <div id="game"></div>
 <script>
     class Hero {
@@ -15,11 +14,35 @@
             this.top = top;
             this.left = left;
             this.size = size;
+            this.direction = 'right'; // Thêm một thuộc tính để rẽ hướng
         }
 
         moveRight() {
             this.left += 20;
-            console.log('ok' + this.left);
+        }
+
+        moveLeft() {
+            this.left -= 20;
+        }
+
+        moveDown() {
+            this.top += 20;
+        }
+
+        moveUp() {
+            this.top -= 20;
+        }
+
+        changeDirection() { // Thêm một phương thức để thao tác rẽ hướng
+            if (this.direction === 'right') {
+                this.direction = 'down';
+            } else if (this.direction === 'down') {
+                this.direction = 'left';
+            } else if (this.direction === 'left') {
+                this.direction = 'up';
+            } else if (this.direction === 'up') {
+                this.direction = 'right';
+            }
         }
 
         getHeroElement() {
@@ -29,19 +52,43 @@
                 ' style="top: ' + this.top + 'px; left:' + this.left + 'px;position:absolute;" />'
         }
     }
-    let hero = new Hero('https://upload.wikimedia.org/wikipedia/en/a/a5/Pok%C3%A9mon_Charmander_art.png', 20, 30, 200);
-    hero.getHeroElement();
+
+    let hero = new Hero('pikachu.png', 20, 30, 200);
 
     function start() {
-        if (hero.left < window.innerWidth - hero.size) {
+        // debugger;
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+
+        if (hero.direction === 'right') {
             hero.moveRight();
+            if (hero.left + hero.size > width) {
+                // hero.left = width - hero.size; // nên thêm vào để pikachu ko tràn màn hình
+                hero.changeDirection();
+            }
+        } else if (hero.direction === 'down') {
+            hero.moveDown();
+            if (hero.top + hero.size > height) {
+                // hero.top = height - hero.size; // nên thêm vào để pikachu ko tràn màn hình
+                hero.changeDirection();
+            }
+        } else if (hero.direction === 'left') {
+            hero.moveLeft();
+            if (hero.left < 0) {
+                // hero.left = 0; // nên thêm vào để pikachu ko tràn màn hình
+                hero.changeDirection();
+            }
+        } else if (hero.direction === 'up') {
+            hero.moveUp();
+            if (hero.top < 0) {
+                // hero.top = 0; // nên thêm vào để pikachu ko tràn màn hình
+                hero.changeDirection();
+            }
         }
         document.getElementById('game').innerHTML = hero.getHeroElement();
-        setTimeout(start, 500);
+        setTimeout(start, 20);
     }
-
     start();
-
 </script>
 
 </body>

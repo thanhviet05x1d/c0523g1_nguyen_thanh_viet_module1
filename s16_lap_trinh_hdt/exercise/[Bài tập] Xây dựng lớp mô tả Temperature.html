@@ -2,24 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>[Thực hành] Funny circles</title>
+    <title>[Bài tập] Xây dựng lớp mô tả Temperature</title>
 
 </head>
 <body>
-<h2>[Thực hành] Funny circles</h2>
+<h2>[Bài tập] Xây dựng lớp mô tả Temperature</h2>
 
 <script>
-    function Temperature(doC) {
-        this.doC = doC;
-        this.changeCtoF = function () {
-            return 9 / 5 * doC + 32;
+    // function Temperature(doC) {
+    //     this.doC = doC;
+    //     this.changeCtoF = function () {
+    //         return 9 / 5 * doC + 32;
+    //     }
+    //     this.changeCtoK = function () {
+    //         return doC + 273.15;
+    //     }
+    // }
+
+    class Temperature {
+        constructor(doC) {
+            this.doC = doC;
         }
-        this.changeCtoK = function () {
-            return doC + 273.15;
+
+        changeCtoF() {
+            return 9 / 5 * this.doC + 32;
+        }
+
+        changeCtoK() {
+            return this.doC + 273.15;
         }
     }
 
-    let temperrature = new Temperature(25);
+    let doC = +prompt('Nhập vào nhiệt độ C');
+    let temperrature = new Temperature(doC);
     alert("Nhiệt độ F= " + temperrature.changeCtoF());
     alert("Nhiệt độ K= " + temperrature.changeCtoK());
 
