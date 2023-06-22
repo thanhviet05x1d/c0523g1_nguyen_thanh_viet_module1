@@ -11,8 +11,10 @@
 
 <script>
     let n = +prompt('Mời bạn nhập vào giá trị');
-    alert('Là số nguyên dương? '+soNguyenDuong(n));
 
+    alert('Là số nguyên dương? '+soNguyenDuong2(n));
+
+    // Cách 1
     function soNguyenDuong(n) {
         if (isNaN(n)) {
             return false
@@ -22,6 +24,18 @@
             return false
         }
     }
+
+    // Cách 2
+    function soNguyenDuong2(n) {
+        if (!Number.isInteger(n)) {
+            return false
+        } else if (n > 0) {
+            return true
+        } else {
+            return false
+        }
+    }
+
 
 </script>
 </body>
