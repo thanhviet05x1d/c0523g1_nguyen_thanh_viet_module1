@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quản lý sản phẩm</title>
+    <style>
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+            width: 60%;
+        }
+
+        th, td, tr {
+            border: solid 1px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Quản lý sản phẩm</h1>
+
+<form>
+    <input type="text" id="tenSanPham" placeholder="Tên sản phẩm">
+    <button id="btn-update" type="button" onclick="themSanPham()">Thêm</button>
+</form>
+
+<table id="bangSanPham">
+    <tr>
+        <th>Số thứ tự</th>
+        <th>Tên sản phẩm</th>
+        <th>Sửa</th>
+        <th>Xóa</th>
+    </tr>
+</table>
+<script>
+
+
+    let danhSachSanPham = ['sp1', 'sp2', 'sp3'];
+
+    // Phần 1: Cập nhật sản phẩm vào bảng.
+    let bang = document.getElementById('bangSanPham');
+
+    function hienThiSanPham() {
+        // Xóa các td trong bảng hiện có
+        while (bang.rows.length > 1) {
+            bang.deleteRow(1); // Xóa dòng kế dưới, trừ dòng th (tiêu đề)
+        }
+
+        for (let i = 0; i < danhSachSanPham.length; i++) {
+            let dong = bang.insertRow(i + 1);
+            let oSTT = dong.insertCell(0);
+            let oTen = dong.insertCell(1);
+            let oSua = dong.insertCell(2);
+            let oXoa = dong.insertCell(3);
+            oSTT.innerHTML = i + 1;
+            oTen.innerHTML = danhSachSanPham[i];
+            debugger;
+            oSua.innerHTML = " <button onclick='suaSanPham(" + i + ")'>" + "Sửa" + "</button> "
+            oXoa.innerHTML = " <button onclick='xoaSanPham(" + i + ")'>" + "Xóa" + "</button> "
+        }
+    }
+
+    // Phần 2: Hàm thêm sản phẩm mới.
+    let nhapSanPham = document.getElementById('tenSanPham');
+
+    function themSanPham() {
+        let sanPhamMoi = nhapSanPham.value.toString();
+        if (sanPhamMoi !== "") {
+            danhSachSanPham.push(sanPhamMoi);
+            hienThiSanPham();
+        }
+    }
+
+    // Phần 3: Hàm sửa sản phẩm đã có.
+    function suaSanPham(i) {
+        let tenSanPhamMoi = prompt("Mời bạn nhập vào", danhSachSanPham[i]);
+        if (tenSanPhamMoi !== "") {
+            danhSachSanPham[i] = tenSanPhamMoi;
+            hienThiSanPham();
+        }
+    }
+
+    // Phần 4: Xóa sản phẩm đã có
+    function xoaSanPham(i) {
+        danhSachSanPham.splice(i, 1);
+        hienThiSanPham();
+    }
+
+    // Thực thi việc hiển thị sản phẩm ngay từ ban đầu
+    hienThiSanPham();
+
+</script>
+</body>
+</html>

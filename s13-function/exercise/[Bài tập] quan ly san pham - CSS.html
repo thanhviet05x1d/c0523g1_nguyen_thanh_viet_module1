@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quản lý sản phẩm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 0 auto 50px;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: #b4b4b4;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 60%;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>Quản lý sản phẩm</h1>
+
+<table>
+    <tr>
+        <th>Thêm sản phẩm mới</th>
+        <th>Sửa tên sản phẩm</th>
+    </tr>
+    <tr>
+        <td>
+            <form>
+                <input type="text" id="tenSanPham" placeholder="Tên sản phẩm">
+                <button type="button" onclick="themSanPham()">Thêm</button>
+            </form>
+        </td>
+        <td>
+            <form>
+                <input type="text" id="tenSanPhamCapNhat" placeholder="Nhập vào tên mới">
+                <button type="button" onclick="capNhatTenSanPham()">Cập nhật</button>
+            </form>
+        </td>
+    </tr>
+
+</table>
+
+
+<table id="bangSanPham">
+    <tr>
+        <th>Số thứ tự</th>
+        <th>Tên sản phẩm</th>
+        <th>Sửa</th>
+        <th>Xóa</th>
+    </tr>
+</table>
+<script>
+
+
+    let danhSachSanPham = ['sp1', 'sp2', 'sp3'];
+
+    // Phần 1: Cập nhật sản phẩm vào bảng.
+    let bang = document.getElementById('bangSanPham');
+
+    function hienThiSanPham() {
+        // Xóa các td trong bảng hiện có
+        while (bang.rows.length > 1) {
+            bang.deleteRow(1); // Xóa dòng kế dưới, trừ dòng th (tiêu đề)
+        }
+
+        for (let i = 0; i < danhSachSanPham.length; i++) {
+            let dong = bang.insertRow(i + 1);
+            let oSTT = dong.insertCell(0);
+            let oTen = dong.insertCell(1);
+            let oSua = dong.insertCell(2);
+            let oXoa = dong.insertCell(3);
+            oSTT.innerHTML = i + 1;
+            oTen.innerHTML = danhSachSanPham[i];
+            debugger;
+            oSua.innerHTML = " <button onclick='suaSanPham(" + i + ")'>" + "Sửa" + "</button> "
+            oXoa.innerHTML = " <button onclick='xoaSanPham(" + i + ")'>" + "Xóa" + "</button> "
+        }
+    }
+
+    // Phần 2: Hàm thêm sản phẩm mới.
+    let nhapSanPham = document.getElementById('tenSanPham');
+
+    function themSanPham() {
+        let sanPhamMoi = nhapSanPham.value.toString();
+        if (sanPhamMoi !== "") {
+            danhSachSanPham.push(sanPhamMoi);
+            hienThiSanPham();
+            nhapSanPham.value='';
+        }
+    }
+
+    // Phần 3: Hàm sửa sản phẩm đã có.
+    let index = null;
+
+    function suaSanPham(i) {
+        document.getElementById('tenSanPhamCapNhat').value = danhSachSanPham[i];
+        index = i;
+    }
+
+    function capNhatTenSanPham() {
+        danhSachSanPham[index] = document.getElementById('tenSanPhamCapNhat').value.toString();
+        hienThiSanPham();
+        document.getElementById('tenSanPhamCapNhat').value = '';
+        index = null;
+    }
+
+    // Phần 4: Xóa sản phẩm đã có
+    function xoaSanPham(i) {
+        danhSachSanPham.splice(i, 1);
+        hienThiSanPham();
+    }
+
+    // Thực thi việc hiển thị sản phẩm ngay từ ban đầu
+    hienThiSanPham();
+
+</script>
+</body>
+</html>
