@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra xuat hien phan tu</title>
+
+</head>
+<body>
+<script>
+
+    const compareFn = (a, b) => (a < b ? -1 : 0);
+
+    function missingValue(A, B) {
+        let C = [];
+        for (let i = 0; i < A.length; i++) {
+            let count = 0;
+            for (let j = 0; j < B.length; j++) {
+                if (A[i] === B[j]) {
+                    count++;
+                }
+            }
+            if (count === 0) {
+                C.push(A[i]);
+            }
+        }
+        return C.sort(compareFn);
+    }
+
+    A = [1, 3, 2];
+    B = [1, 1, 4, 7, 9, 5];
+
+    console.log(missingValue(A,B));
+</script>
+</body>
+</html>
