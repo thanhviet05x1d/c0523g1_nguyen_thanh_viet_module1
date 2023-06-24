@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ hình chữ nhật rỗng</title>
+
+</head>
+<body>
+<pre id="triangle"></pre>
+<!--Dùng thẻ <pre> để không mất Space-->
+
+<script>
+    function veTamGiacCan(chieuCao) {
+        debugger;
+        let ketQua = '';
+        for (let i = 1; i <= chieuCao; i++) {
+            let dong = '';
+            for (let j = 1; j <= 2 * chieuCao-1; j++) {
+                if (i == chieuCao || j == chieuCao - (i - 1) || j == chieuCao + (i - 1)) {
+                    dong += '*';
+                } else {
+                    dong += ' ';
+                }
+            }
+            ketQua += dong + '\n';
+        }
+        return ketQua;
+    }
+
+    document.getElementById('triangle').innerText = veTamGiacCan(5);
+
+</script>
+</body>
+</html>

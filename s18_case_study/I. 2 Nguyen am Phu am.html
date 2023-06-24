@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lương nhân viên</title>
+
+</head>
+<body>
+<form>
+    <input type="text" id="kytu" placeholder="Nhập vào ký tự kiểm tra">
+    <input type="button" id="btn-kiemtra" value="Kiểm Tra" onclick="kiemTra()"><br/>
+    <p id="ketQua"></p>
+</form>
+<script>
+function kiemTra(){
+    let kyTu=document.getElementById("kytu").value.toLowerCase();
+    switch (kyTu){
+        case "u":
+        case "e":
+        case "o":
+        case "a":
+        case "i":
+           document.getElementById('ketQua').innerText="Là nguyên âm";
+            break;
+        default:
+            document.getElementById('ketQua').innerText="Là phụ âm";
+    }
+}
+</script>
+</body>
+</html>

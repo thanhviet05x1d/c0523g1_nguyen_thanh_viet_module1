@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vẽ tam giác cân</title>
+</head>
+<style>
+    .
+</style>
+<body>
+<p id="triangle"></p>
+
+<script>
+    function veTamGiacCan(chieuCao) {
+        let result = '';
+
+        for (let i = 1; i <= chieuCao; i++) {
+            let row = '';
+
+            // Thêm khoảng trắng vào đầu dòng
+            for (let j = 1; j <= chieuCao - i; j++) {
+                row += '&nbsp;'; // dùng &nbsp để không bị mất khi dùng thẻ p
+            }
+
+            // Thêm ký tự '*' vào dòng
+            for (let j = 1; j <= 2 * i - 1; j++) {
+                row += '*';
+            }
+
+            result += row + '<br>';
+        }
+
+        return result;
+    }
+
+    document.getElementById('triangle').innerHTML=veTamGiacCan(5);
+
+</script>
+</script>
+</body>
+</html>

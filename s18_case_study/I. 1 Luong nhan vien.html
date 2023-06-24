@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lương nhân viên</title>
+
+</head>
+<body>
+<form>
+    <input type="text" id="salary">
+    <input type="button" id="btn-salary" value="Tính" onclick="tinhLuong()"><br/>
+    <p id="ketQua"></p>
+</form>
+<script>
+    function tinhLuong() {
+        let luongRong = 0;
+        let thue = 0;
+        let luong = +document.getElementById('salary').value;
+        if (luong >= 15000000) {
+            luongRong = 0.8 * luong;
+            thue = 0.2 * luong;
+
+        } else if (luong >= 7000000) {
+            luongRong = 0.9 * luong;
+            thue = 0.1 * luong;
+        }else {
+            luongRong=0.95*luong;
+            thue=0.05*luong;
+        }
+        document.getElementById('ketQua').innerText=`Lương thực nhận là ${luongRong} và thuế là ${thue}.`
+
+    }
+</script>
+</body>
+</html>
