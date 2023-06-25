@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liệt kê các số nguyên tố trong mảng</title>
+</head>
+<body>
+<script>
+    // 1. Tạo mảng 2 chiều
+    let a = [];
+    m = +prompt('Nhập vào giá trị m:');
+    n = +prompt('Nhập vào giá trị n:');
+    for (let i = 0; i < m; i++) {
+        a[i] = [];
+        for (let j = 0; j < n; j++) {
+            a[i][j] = Math.floor((Math.random() * 10) + 1);
+        }
+    }
+
+
+    //2. Tìm giá trị max và min
+    let max =a[0][0];
+    let min =a[0][0];
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (a[i][j]>max){
+                max=a[i][j];
+            }
+            if (a[i][j]<min){
+                min=a[i][j];
+            }
+        }
+    }
+
+    document.write('Giá trị min là: '+min+'<br>');
+    document.write('Giá trị max là: '+max+'<br>');
+
+</script>
+</body>
+</html>

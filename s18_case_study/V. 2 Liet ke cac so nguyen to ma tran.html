@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liệt kê các số nguyên tố trong mảng</title>
+</head>
+<body>
+<script>
+    // 1. Tọa mảng 2 chiều
+    let a = [];
+    m = +prompt('Nhập vào giá trị m:');
+    n = +prompt('Nhập vào giá trị n:');
+    for (let i = 0; i < m; i++) {
+        a[i] = [];
+        for (let j = 0; j < n; j++) {
+            a[i][j] = Math.floor((Math.random() * 10) + 1);
+        }
+    }
+
+    //2. Hàm tìm số nguyên tố
+    function isPrime(number) {
+        let dem = 0;
+        for (let i = 1; i <= number; i++) {
+            if (number % i == 0) {
+                dem++;
+            }
+        }
+        if (dem == 2) {
+            return number;
+        } else {
+            return "";
+        }
+    }
+
+    //3. Liệt kê mảng các số nguyên tố
+    let nguyenTo = '';
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            nguyenTo += (isPrime(a[i][j]));
+        }
+    }
+    document.write(nguyenTo.split('').join(',')); // Chuyển dãy số thành mảng, sau đó nối lại bằng dấu phẩy
+
+</script>
+</body>
+</html>
