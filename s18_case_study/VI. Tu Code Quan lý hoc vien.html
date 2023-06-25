@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý học viên</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Quản lý học viên</h1>
+
+<button onclick="hienThiHocVien()">Hiển thị danh sách học viên</button>
+<button onclick="themHocVien()">Thêm mới học viên</button>
+<button onclick="suaHocVien()">Sửa thông tin học viên</button>
+<button onclick="xoaHocVien()">Xóa học viên</button>
+
+<table id="bangHocVien">
+    <thead>
+    <tr>
+        <th>Mã học viên</th>
+        <th>Tên</th>
+        <th>Lớp</th>
+        <th>Email</th>
+        <th>Ngày sinh</th>
+        <th>Module</th>
+    </tr>
+
+    </thead>
+    <tbody id="phanThanBangHocVien">
+    </tbody>
+
+</table>
+<script>
+    // 1. Tạo Class đối tượng Học Viên
+    class HocVien {
+        constructor(maHV, ten, lop, email, ngaySinh, module) {
+            this.maHV = maHV;
+            this.ten = ten;
+            this.lop = lop;
+            this.email = email;
+            this.ngaySinh = ngaySinh;
+            this.module = module;
+        }
+    }
+
+    // 2. Khai báo một mảng chứa các đối tượng học viên
+    let danhSachHocVien = [];
+
+    //3. Code để hiển thị ra màn hình thông tin học viên
+    function hienThiHocVien() {
+        let phanThanBangHocVien = document.getElementById('phanThanBangHocVien');
+        phanThanBangHocVien.innerHTML = '';
+
+        for (let i = 0; i < danhSachHocVien.length; i++) {
+            let hocVien = danhSachHocVien[i];
+
+            let dong = phanThanBangHocVien.insertRow(i);
+            let oMaHV = dong.insertCell(0);
+            oMaHV.innerHTML = hocVien.maHV;
+            let oTen = dong.insertCell(1);
+            oTen.innerHTML = hocVien.ten;
+            let oLop = dong.insertCell(2);
+            oLop.innerHTML = hocVien.lop;
+            let oEmail = dong.insertCell(3);
+            oEmail.innerHTML = hocVien.email;
+            let oNgaySinh = dong.insertCell(4);
+            oNgaySinh.innerHTML = hocVien.ngaySinh;
+            let oModule = dong.insertCell(5);
+            oModule.innerHTML = hocVien.module;
+
+        }
+
+    }
+
+    //4. Nút thêm học viên mới
+
+    function themHocVien() {
+        let maHV = prompt("Nhập mã học viên:", 'HV-');
+        let ten = prompt("Nhập tên học viên:");
+        let lop = prompt("Nhập lớp:");
+        let email = prompt("Nhập email:");
+        let ngaySinh = prompt("Nhập ngày sinh (dd/mm/yyyy):");
+        let module = prompt("Nhập module:");
+
+        let hocVien = new HocVien(maHV, ten, lop, email, ngaySinh, module);
+        danhSachHocVien.push(hocVien);
+        hienThiHocVien();
+    }
+
+    function suaHocVien() {
+        let maHV = prompt('Nhập vào mã học viên cần sửa', 'HV-');
+        for (let i = 0; i < danhSachHocVien.length; i++) {
+            let hocVien = danhSachHocVien[i];
+            if (hocVien.maHV === maHV) {
+                hocVien.ten = prompt('Nhập tên học viên', hocVien.ten);
+                hocVien.lop = prompt('Nhập tên học viên', hocVien.lop);
+                hocVien.email = prompt('Nhập tên học viên', hocVien.email);
+                hocVien.ngaySinh = prompt('Nhập tên học viên', hocVien.ngaySinh);
+                hocVien.module = prompt('Nhập tên học viên', hocVien.module);
+                hienThiHocVien();
+                return;
+            }
+        }
+    }
+
+    function xoaHocVien() {
+        debugger;
+        let maHV = prompt('Nhập vào mã học viên cần xóa', 'HV-');
+        for (let i = 0; i < danhSachHocVien.length; i++) {
+            let hocVien = danhSachHocVien[i];
+            if (hocVien.maHV === maHV) {
+                let xacNhan = confirm('Bạn có chắc là xóa học viên này chứ?');
+                if (xacNhan === true) {
+                    danhSachHocVien.splice(i, 1);
+                    hienThiHocVien();
+                }
+                return;
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>

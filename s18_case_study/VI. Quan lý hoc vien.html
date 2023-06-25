@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quản lý học viên</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+<h1>Quản lý học viên</h1>
+
+<button onclick="showAllStudents()">Hiển thị danh sách học viên</button>
+<button onclick="addStudent()">Thêm mới học viên</button>
+<button onclick="editStudent()">Sửa thông tin học viên</button>
+<button onclick="deleteStudent()">Xóa học viên</button>
+
+<table id="studentTable">
+    <thead>
+    <tr>
+        <th>Mã học viên</th>
+        <th>Tên</th>
+        <th>Lớp</th>
+        <th>Email</th>
+        <th>Ngày sinh</th>
+        <th>Module</th>
+    </tr>
+    </thead>
+    <tbody id="studentTableBody">
+
+    </tbody>
+</table>
+
+<script>
+    // Class HocVien
+    class HocVien {
+        constructor(maHV, ten, lop, email, ngaySinh, module) {
+            this.maHV = maHV;
+            this.ten = ten;
+            this.lop = lop;
+            this.email = email;
+            this.ngaySinh = ngaySinh;
+            this.module = module;
+        }
+    }
+
+    // Danh sách học viên là một mảng chứa nhiều đối tượng Học Viên
+    let danhSachHocVien = [];
+
+    // Hiển thị danh sách học viên, hàm này sẽ được gọi sau khi có cập nhật.
+    function showAllStudents() {
+        let tableBody = document.getElementById("studentTableBody");
+        tableBody.innerHTML = "";
+
+        for (let i = 0; i < danhSachHocVien.length; i++) {
+            let hocVien = danhSachHocVien[i];
+
+            let row = tableBody.insertRow();
+
+            let maHVCell = row.insertCell();
+            maHVCell.innerHTML = hocVien.maHV;
+
+            let tenCell = row.insertCell();
+            tenCell.innerHTML = hocVien.ten;
+
+            let lopCell = row.insertCell();
+            lopCell.innerHTML = hocVien.lop;
+
+            let emailCell = row.insertCell();
+            emailCell.innerHTML = hocVien.email;
+
+            let ngaySinhCell = row.insertCell();
+            ngaySinhCell.innerHTML = hocVien.ngaySinh;
+
+            let moduleCell = row.insertCell();
+            moduleCell.innerHTML = hocVien.module;
+        }
+    }
+
+    // Thêm mới học viên
+    function addStudent() {
+        let maHV = prompt("Nhập mã học viên:",'HV-');
+        let ten = prompt("Nhập tên học viên:");
+        let lop = prompt("Nhập lớp:");
+        let email = prompt("Nhập email:");
+        let ngaySinh = prompt("Nhập ngày sinh (dd/mm/yyyy):");
+        let module = prompt("Nhập module:");
+
+        // Kiểm tra mã học viên duy nhất và định dạng
+        if (maHVExists(maHV) || !maHV.match(/^HV-\d{4}$/)) {
+            alert("Mã học viên không hợp lệ hoặc đã tồn tại.");
+            return;
+        }
+
+        // Kiểm tra độ dài tên học viên
+        if (ten.length > 50) {
+            alert("Tên học viên vượt quá 50 ký tự.");
+            return;
+        }
+
+        // Kiểm tra module
+        if (module < 1 || module > 6) {
+            alert("Module không hợp lệ.");
+            return;
+        }
+
+        // Kiểm tra định dạng ngày sinh
+        let dateParts = ngaySinh.split("/");
+        let day = parseInt(dateParts[0]);
+        let month = parseInt(dateParts[1]);
+        let year = parseInt(dateParts[2]);
+
+        if (isNaN(day) || isNaN(month) || isNaN(year) || day < 1 || day > 31 || month < 1 || month > 12 || year < 1900 || year > 2100) {
+            alert("Ngày sinh không hợp lệ.");
+            return;
+        }
+
+        let hocVien = new HocVien(maHV, ten, lop, email, ngaySinh, module);
+        danhSachHocVien.push(hocVien);
+        showAllStudents();
+        console.log(danhSachHocVien);
+
+    }
+
+    // Kiểm tra mã học viên đã tồn tại hay chưa
+    function maHVExists(maHV) {
+        for (let i = 0; i < danhSachHocVien.length; i++) {
+            if (danhSachHocVien[i].maHV === maHV) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Sửa thông tin học viên
+    function editStudent() {
+        let maHV = prompt("Nhập mã học viên cần sửa thông tin:");
+
+        for (let i = 0; i < danhSachHocVien.length; i++) {
+            if (danhSachHocVien[i].maHV === maHV) {
+                let hocVien = danhSachHocVien[i];
+
+                hocVien.ten = prompt("Nhập tên học viên:", hocVien.ten);
+                hocVien.lop = prompt("Nhập lớp:", hocVien.lop);
+                hocVien.email = prompt("Nhập email:", hocVien.email);
+                hocVien.ngaySinh = prompt("Nhập ngày sinh (dd/mm/yyyy):", hocVien.ngaySinh);
+                hocVien.module = prompt("Nhập module:", hocVien.module);
+
+                showAllStudents();
+                return;
+            }
+        }
+
+        alert("Mã học viên không tồn tại.");
+    }
+
+    // Xóa học viên
+    function deleteStudent() {
+        let maHV = prompt("Nhập mã học viên cần xóa:");
+
+        for (let i = 0; i < danhSachHocVien.length; i++) {
+            if (danhSachHocVien[i].maHV === maHV) {
+                let confirmDelete = confirm("Bạn có chắc chắn muốn xóa học viên này?");
+                if (confirmDelete) {
+                    danhSachHocVien.splice(i, 1);
+                    showAllStudents();
+                }
+                return;
+            }
+        }
+
+        alert("Mã học viên không tồn tại.");
+    }
+
+</script>
+</body>
+</html>
