@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đếm số lượng kí tự khác nhau trong xâu đó</title>
+</head>
+<body>
+<script>
+    function commonCharacterCount(chuoi1, chuoi2) {
+        let count = 0;
+        let mangKyTuDuyNhat1 = []; // Để chứa các ký tự duy nhất của chuỗi 1
+        let mangDem = []; // Để chứa số lần xuất hiện của ký tự duy nhất trong chuỗi 1
+        for (let i = 0; i < chuoi1.length; i++) {
+            let kyTu = chuoi1[i];
+            let dem1 = 0;
+            if (mangKyTuDuyNhat1.indexOf(kyTu) === -1) {
+                dem1 = chuoi1.split(kyTu).length - 1; // Đếm số lần xuất hiện
+                mangKyTuDuyNhat1.push(kyTu); // đẩy ký tự duy nhất vào mảng
+                mangDem.push(dem1); // đẩy số lần xuất hiện của ký tự duy nhất vào mảng
+            }
+        }
+
+        for (let i = 0; i < mangKyTuDuyNhat1.length; i++) {
+            let kyTu = mangKyTuDuyNhat1[i];
+            let dem2 = 0; // đếm số lần xuất hiện của từng ký tự riêng biệt chuỗi 1 ở chuỗi 2
+            if (chuoi2.indexOf(kyTu) !== -1) {
+                dem2 = chuoi2.split(kyTu).length - 1;
+                mangDem[i] = Math.min(dem2, mangDem[i]);
+            } else {
+                mangDem[i] = 0;
+            }
+            count += mangDem[i];
+        }
+        return count;
+    }
+
+    chuoi1 = 'aabcc';
+    chuoi2 = 'adcaa';
+
+    console.log(commonCharacterCount(chuoi1, chuoi2));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đếm số lượng kí tự khác nhau trong xâu đó</title>
+</head>
+<body>
+<script>
+    function differentSymbolsNaive(chuoi) {
+        let mangKyTuDuyNhat = [];
+        for (let i = 0; i < chuoi.length; i++) {
+            let kyTu = chuoi[i];
+            if (mangKyTuDuyNhat.indexOf(kyTu) === -1) {
+                mangKyTuDuyNhat.push(kyTu);
+            }
+        }
+        return mangKyTuDuyNhat.length;
+    }
+    chuoi = 'cabca';
+    console.log(differentSymbolsNaive(chuoi));
+
+</script>
+</body>
+</html>

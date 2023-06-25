@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chuẩn hóa xâu ký tự</title>
+</head>
+<body>
+<script>
+    function chuanHoaChuoi(chuoi) {
+        debugger;
+        let chuoiDaChuanHoa = [];
+        let cacTuTrongChuoi = chuoi.split(' ');
+        for (let i = 0; i < cacTuTrongChuoi.length; i++) {
+            let tu = cacTuTrongChuoi[i].trim();
+            tu = tu.charAt(0).toUpperCase() + tu.slice(1).toLowerCase();
+            if (tu !== '') {
+                chuoiDaChuanHoa.push(tu);
+            }
+        }
+        return chuoiDaChuanHoa.join(' ').toString();
+    }
+
+    function timTuDaiNhat(chuoi) {
+        let cacTuTrongChuoi = chuoi.split(' ');
+        for (let i = 0; i < cacTuTrongChuoi.length; i++) {
+            let max = cacTuTrongChuoi[0].trim().length;
+            if (cacTuTrongChuoi[i].trim().length > max) {
+                return cacTuTrongChuoi[i];
+            } else {
+                return cacTuTrongChuoi[0];
+            }
+        }
+    }
+
+    function main() {
+
+        let chuoi = "NguyeN   ThanH vIET "
+        document.write("Xâu trước khi chuẩn hóa: " + chuoi + "<br>");
+
+        document.write("Xâu sau khi chuẩn hóa: " + chuanHoaChuoi(chuoi) + "<br>");
+
+        document.write("Từ dài nhất trong xâu: " + timTuDaiNhat(chuoi));
+    }
+
+    main();
+</script>
+</body>
+</html>
