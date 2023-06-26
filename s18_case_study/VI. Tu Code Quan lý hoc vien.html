@@ -79,7 +79,6 @@
     function hienThiHocVien() {
         let phanThanBangHocVien = document.getElementById('phanThanBangHocVien');
         phanThanBangHocVien.innerHTML = '';
-
         for (let i = 0; i < danhSachHocVien.length; i++) {
             let hocVien = danhSachHocVien[i];
 
@@ -104,7 +103,6 @@
     //4. Nút thêm học viên mới
 
     function themHocVien() {
-debugger;
         let maHV = prompt("Nhập mã học viên:", 'HV-0001');
         // Kiểm tra mã học vien.
         if (maHVTonTai(maHV) === true || maHVDung(maHV) === false) {
@@ -131,7 +129,6 @@ debugger;
                         alert('Module nhập sai, nhập từ 1 đến 6.')
                         return;
                     } else {
-                        debugger;
                         let hocVien = new HocVien(maHV, ten, lop, email, ngaySinh, module);
                         danhSachHocVien.push(hocVien);
                         hienThiHocVien();
@@ -160,7 +157,6 @@ debugger;
 
     // 6. Nút xóa học viên
     function xoaHocVien() {
-        debugger;
         let maHV = prompt('Nhập vào mã học viên cần xóa', 'HV-');
         for (let i = 0; i < danhSachHocVien.length; i++) {
             let hocVien = danhSachHocVien[i];
