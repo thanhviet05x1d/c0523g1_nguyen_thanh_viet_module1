@@ -14,6 +14,9 @@
             border: 1px solid black;
             padding: 8px;
         }
+        thead{
+            background: slategray;
+        }
 
         button {
             background-color: #4CAF50; /* Green */
@@ -101,10 +104,10 @@
     //4. Nút thêm học viên mới
 
     function themHocVien() {
-
+debugger;
         let maHV = prompt("Nhập mã học viên:", 'HV-0001');
         // Kiểm tra mã học vien.
-        if (maHVTonTai(maHV) === false || maHVDung(maHV) === false) {
+        if (maHVTonTai(maHV) === true || maHVDung(maHV) === false) {
             alert('Mã Học viên đã tồn tại hoặc nhập không đúng quy định');
             return;
         } else {
@@ -189,6 +192,7 @@
 
     function maHVDung(maHV) {
         if (maHV.match(/^HV-\d{4}$/) !== null) {
+            console.log("a")
             return true
         }
         return false;
