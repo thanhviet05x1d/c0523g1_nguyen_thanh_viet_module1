@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đếm số lượng kí tự chung trong 2 xâu</title>
+</head>
+<body>
+<script>
+    function commonCharacterCount(chuoi1, chuoi2) {
+        let count = [];
+        debugger;
+        let ch1=chuoi1.split(''); // tách chuỗi thành mảng
+        let ch2=chuoi2.split('');
+        for (let i = 0; i < ch1.length; i++) { // Duyệt qua lần lượt từng phần tử trong mảng ch1
+            for (let j = 0; j < ch2.length; j++) { // Duyệt qua lần lượt từng phần tử ở mảng ch2
+                if (ch2[j].includes(ch1[i])===true){ // nếu tìm thấy phần từ mảng ch1 trong ch2 thì
+                       count.push(ch1[i]); // đẩy vào mảng đếm (lúc đầu nó rỗng)
+                       ch2.splice(j,1); // cắt bỏ đi ch2 1 phần tử chung tại vị trí j
+                    break; // không lặp j nữa, tiết kiệm thời gian
+                }
+            }
+        }
+        return count.length; // trả về độ dài mảng đếm
+    }
+
+    chuoi1 = 'aabcc';
+    chuoi2 = 'adcaa';
+
+    console.log(commonCharacterCount(chuoi1, chuoi2));
+
+</script>
+</body>
+</html>

@@ -83,7 +83,7 @@
     }
 
     function hienThiThucUongMua() {
-        // Xóa các td trong bảng hiện có
+        // Xóa các td trong bảng hiện có , nên dùng tbody có vẻ hay hơn.
         while (bangSanPhamMua.rows.length > 1) {
             bangSanPhamMua.deleteRow(1); // Xóa dòng kế dưới, trừ dòng th (tiêu đề)
         }
