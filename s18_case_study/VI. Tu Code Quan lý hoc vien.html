@@ -5,21 +5,37 @@
     <title>Quản lý học viên</title>
     <style>
         table {
-            width: 100%;
+            width: 60%;
             border-collapse: collapse;
+            margin-top: 30px;
         }
 
         th, td {
             border: 1px solid black;
             padding: 8px;
         }
+
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 4px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
     </style>
+
+
 
 </head>
 <body>
 <h1>Quản lý học viên</h1>
 
-<button onclick="hienThiHocVien()">Hiển thị danh sách học viên</button>
 <button onclick="themHocVien()">Thêm mới học viên</button>
 <button onclick="suaHocVien()">Sửa thông tin học viên</button>
 <button onclick="xoaHocVien()">Xóa học viên</button>
@@ -85,18 +101,44 @@
     //4. Nút thêm học viên mới
 
     function themHocVien() {
-        let maHV = prompt("Nhập mã học viên:", 'HV-');
-        let ten = prompt("Nhập tên học viên:");
-        let lop = prompt("Nhập lớp:");
-        let email = prompt("Nhập email:");
-        let ngaySinh = prompt("Nhập ngày sinh (dd/mm/yyyy):");
-        let module = prompt("Nhập module:");
 
-        let hocVien = new HocVien(maHV, ten, lop, email, ngaySinh, module);
-        danhSachHocVien.push(hocVien);
-        hienThiHocVien();
+        let maHV = prompt("Nhập mã học viên:", 'HV-0001');
+        // Kiểm tra mã học vien.
+        if (maHVTonTai(maHV) === false || maHVDung(maHV) === false) {
+            alert('Mã Học viên đã tồn tại hoặc nhập không đúng quy định');
+            return;
+        } else {
+            let ten = prompt("Nhập tên học viên:");
+            // Kiểm tra tên học viên
+            if (tenHVdung(ten) === false) {
+                alert('Tên học viên sai quy định');
+                return;
+            } else {
+                let lop = prompt("Nhập lớp:");
+                let email = prompt("Nhập email:");
+                let ngaySinh = prompt("Nhập ngày sinh (dd/mm/yyyy):");
+                // Kiểm tra ngày sinh
+                if (ngaySinhDung(ngaySinh) === false) {
+                    alert('Ngày sinh sai quy định');
+                    return;
+                } else {
+                    let module = prompt("Nhập module:");
+                    // Kiểm tra module
+                    if (moduleDung(module) === false) {
+                        alert('Module nhập sai, nhập từ 1 đến 6.')
+                        return;
+                    } else {
+                        debugger;
+                        let hocVien = new HocVien(maHV, ten, lop, email, ngaySinh, module);
+                        danhSachHocVien.push(hocVien);
+                        hienThiHocVien();
+                    }
+                }
+            }
+        }
     }
 
+    // 5. Nút sửa thông tin học viên
     function suaHocVien() {
         let maHV = prompt('Nhập vào mã học viên cần sửa', 'HV-');
         for (let i = 0; i < danhSachHocVien.length; i++) {
@@ -113,6 +155,7 @@
         }
     }
 
+    // 6. Nút xóa học viên
     function xoaHocVien() {
         debugger;
         let maHV = prompt('Nhập vào mã học viên cần xóa', 'HV-');
@@ -129,6 +172,58 @@
         }
     }
 
+    // 7. Các vấn đề mở rộng thêm;
+    //7.1. Hàm kiểm tra mã học viên đã tồn tại
+    function maHVTonTai(maHV) {
+        for (let i = 0; i < danhSachHocVien.length; i++) {
+            let hocVien = danhSachHocVien[i];
+            if (hocVien.maHV === maHV) {
+                return true;
+            } else {
+                return false
+            }
+        }
+    }
+
+    //7.2. Hàm kiểm tra mã học viên người dùng nhập vào là đúng quy định
+
+    function maHVDung(maHV) {
+        if (maHV.match(/^HV-\d{4}$/) !== null) {
+            return true
+        }
+        return false;
+    }
+
+    //7.3. Hàm kiểm tra tên học viên tối đa 50 ký tự
+
+    function tenHVdung(ten) {
+        if (ten.length > 50 || ten.length === 0) {
+            return false
+        }
+        return true;
+    }
+
+    // 7.4. Hàm kiểm tra Module chỉ nhật từ 1 đến 6
+    function moduleDung(module) {
+        if (module > 6 || module < 1) {
+            return false
+        }
+        return true;
+    }
+
+    // 7.5. Hàm kiểm tra Ngày tháng năm sinh đúng quy định
+    function ngaySinhDung(ngaySinh) {
+        // Kiểm tra định dạng ngày sinh
+        let thanhPhanNgaySinh = ngaySinh.split("/");
+        let ngay = parseInt(thanhPhanNgaySinh[0]);
+        let thang = parseInt(thanhPhanNgaySinh[1]);
+        let nam = parseInt(thanhPhanNgaySinh[2]);
+        if (isNaN(ngay) || isNaN(thang) || isNaN(nam) || ngay < 1 || ngay > 31 || thang < 1 || thang > 12 || nam < 1900 || nam > 2100) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
 </script>
 </body>
