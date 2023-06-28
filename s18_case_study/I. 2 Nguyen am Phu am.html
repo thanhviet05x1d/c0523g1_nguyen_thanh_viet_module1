@@ -12,20 +12,26 @@
     <p id="ketQua"></p>
 </form>
 <script>
-function kiemTra(){
-    let kyTu=document.getElementById("kytu").value.toLowerCase();
-    switch (kyTu){
-        case "u":
-        case "e":
-        case "o":
-        case "a":
-        case "i":
-           document.getElementById('ketQua').innerText="Là nguyên âm";
-            break;
-        default:
-            document.getElementById('ketQua').innerText="Là phụ âm";
+    function kiemTra() {
+        let kyTu = document.getElementById("kytu").value.toLowerCase();
+        if (isNaN(kyTu) === false || kyTu.length > 1) {
+            alert('Mời bạn nhập vào một ký tự trong bảng chữ cái');
+            document.getElementById('kytu').value='';
+            return;
+        }
+
+        switch (kyTu) {
+            case "u":
+            case "e":
+            case "o":
+            case "a":
+            case "i":
+                document.getElementById('ketQua').innerText = "Là nguyên âm";
+                break;
+            default:
+                document.getElementById('ketQua').innerText = "Là phụ âm";
+        }
     }
-}
 </script>
 </body>
 </html>

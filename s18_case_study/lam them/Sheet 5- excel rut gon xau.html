@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Rut gon String</title>
+
+</head>
+<body>
+<script>
+    let string = 'hhooooooooccccsssssiiiiinnnnnhhhhhhggggiiiiooooiiiii'
+
+    function xauGon(string) {
+        let myArr = string.split('');
+        let newArr = [];
+        let kyTuDau = myArr[0];
+        newArr[0] = kyTuDau;
+        let diemDau = 0;
+        for (let i = diemDau; i < myArr.length; i++) {
+            if (myArr[i] !== kyTuDau) {
+                diemDau = i;
+                kyTuDau = myArr[i];
+                newArr.push(kyTuDau);
+            }
+        }
+        return newArr.join('');
+    }
+    console.log(xauGon(string));
+</script>
+</body>
+</html>

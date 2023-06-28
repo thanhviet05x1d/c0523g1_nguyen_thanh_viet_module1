@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Rut gon String</title>
+
+</head>
+<body>
+<script>
+    let myArr = [-1, 150, 190, 170, -1, -1, 160, 180];
+    let myPos = [];
+    let newArr = [];
+
+    function xuLyChuoi(myArr) {
+        for (let i = 0; i < myArr.length; i++) {
+            if (myArr[i] !== -1) {
+                newArr.push(myArr[i]);
+                myPos.push('');
+            } else if (myArr[i] === -1) {
+                myPos.push(i);
+            }
+
+        }
+        newArr.sort((a, b) => a - b);
+
+        let dinhVi = 0;
+        for (let i = 0; i < myPos.length; i++) {
+            if (myPos[i] !== '') {
+                myArr[i] = -1;
+            } else {
+                myArr[i] = newArr[dinhVi];
+                dinhVi++;
+            }
+        }
+        console.log(myArr);
+    }
+
+    xuLyChuoi(myArr);
+
+</script>
+</body>
+</html>

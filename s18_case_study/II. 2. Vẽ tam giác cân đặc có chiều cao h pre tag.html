@@ -13,24 +13,23 @@
     function veTamGiacCan(chieuCao) {
         debugger;
         let ketQua = '';
-        for (let i = 1; i <= chieuCao; i++) {
-            let dong = '';
+        for (let dong = 1; dong <= chieuCao; dong++) {
+            let giaTri = '';
             // Tính toán số lượng ký tự '*' trên mỗi dòng
-            let soLuongKyTu = 2 * i - 1;
+            let soLuongKyTu = 2 * dong - 1;
             // Tính toán số lượng khoảng trắng đầu dòng để căn giữa tam giác
-            let soLuongKhoangTrang = chieuCao - i;
+            let soLuongKhoangTrang = chieuCao - dong;
 
             // Thêm khoảng trắng vào đầu dòng
             for (let j = 1; j <= soLuongKhoangTrang; j++) {
-                dong += ' ';
+                giaTri += ' ';
             }
 
             // Thêm ký tự '*' vào dòng
             for (let j = 1; j <= soLuongKyTu; j++) {
-                dong += '*';
+                giaTri += '*';
             }
-
-            ketQua += dong + '\n';
+            ketQua += giaTri + '\n';
         }
         return ketQua;
     }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Rut gon String</title>
+
+</head>
+<body>
+<script>
+    let string = 'CodeGymDaNang';
+    let newArr = [];
+
+    function xuLyChuoi(string) {
+
+        for (i = 0; i < string.length; i++) {
+            let kyTu = string[i].trim();
+            if (kyTu !== "") {
+                if (kyTu === kyTu.toUpperCase() && kyTu !== kyTu.toLowerCase()) {
+                    kyTu = kyTu.toLowerCase();
+                    kyTu = " " + kyTu;
+                }
+                newArr.push(kyTu);
+            }
+        }
+        return newArr.join('');
+    }
+document.write(xuLyChuoi(string));
+
+
+
+</script>
+</body>
+</html>

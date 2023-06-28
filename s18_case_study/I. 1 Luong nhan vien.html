@@ -16,6 +16,10 @@
         let luongRong = 0;
         let thue = 0;
         let luong = +document.getElementById('salary').value;
+        if (luong<=0|| isNaN(luong)===true){
+            alert('Mời bạn nhập vào một Số  > 0');
+            return;
+        }
         if (luong >= 15000000) {
             luongRong = 0.8 * luong;
             thue = 0.2 * luong;

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Rut gon String</title>
+
+</head>
+<body>
+<script>
+    // let s1 = 'aabcc';
+    let s1 = 'Abcdef';
+    // let s2 = 'adcaa';
+    let s2 = 'Adghjklbc';
+    let count = 0
+
+    function kiemTraKyTuChung(s1, s2) {
+        let s1Arr = s1.split('');
+        let s2Arr = s2.split('');
+        for (let i = 0; i < s1Arr.length; i++) {
+            if (s2Arr.indexOf(s1Arr[i]) !== -1) {
+              s2Arr.splice(s2Arr.indexOf(s1Arr[i]), 1);
+                count++;
+            }
+        }
+        return count;
+    }
+
+    console.log(kiemTraKyTuChung(s1, s2));
+
+</script>
+</body>
+</html>

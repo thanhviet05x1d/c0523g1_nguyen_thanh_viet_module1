@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Rut gon String</title>
+
+</head>
+<body>
+<script>
+
+    // B1. Xác định số lớn nhất trong mảng nhập vào.
+    let arr=[1,5,6,13,9,12,8,0,5,1];
+    let max_arr=arr[0];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i]>max_arr){
+            max_arr=arr[i];
+        }
+    }
+
+    // B2: Tạo hàm xác định tạo dãy số Fibo
+    function fibo(n) {
+        let myArr=[];
+        let so1 = 0, so2 = 1;
+        myArr.push(so1);
+        myArr.push(so2);
+        for (let i = 1; i <= n; i++) {
+            if (i === (so1 + so2)) {
+                myArr.push(i);
+                so1 = so2;
+                so2 = i;
+            }
+        }
+        return myArr;
+    }
+
+    // B3. Trích xuất mảng chứa các số thuộc dãy fibo.
+    let daySo=[];
+    for (let i = 0; i < arr.length; i++) {
+        if (fibo(max_arr).includes(arr[i])===true){
+         daySo.push(arr[i]);
+        }
+    }
+
+    //B4. Sắp xếp lại dãy số
+    daySo.sort((a,b)=>a-b);
+    console.log(daySo);
+
+</script>
+</body>
+</html>

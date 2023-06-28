@@ -13,16 +13,16 @@
 
     function veTamGiacVuongCan(cao) {
         let ketQua = '';
-        for (let i = 1; i <= cao; i++) {
-            let hang = '';
+        for (let dong = 1; dong <= cao; dong++) {
+            let giaTri = '';
             for (let j = 1; j <= cao; j++) {
-                if (i === cao || j === 1 || j === i) {
-                    hang += '*';
+                if (dong === cao || j === 1 || j === dong) {
+                    giaTri += '*';
                 } else {
-                    hang += ' ';
+                    giaTri += ' ';
                 }
             }
-            ketQua += hang + '\n'; // thêm \n để xuống dòng
+            ketQua += giaTri + '\n'; // thêm \n để xuống dòng
         }
         return ketQua;
     }

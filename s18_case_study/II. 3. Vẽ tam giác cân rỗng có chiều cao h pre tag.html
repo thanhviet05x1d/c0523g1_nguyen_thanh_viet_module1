@@ -13,21 +13,22 @@
     function veTamGiacCan(chieuCao) {
         debugger;
         let ketQua = '';
-        for (let i = 1; i <= chieuCao; i++) {
-            let dong = '';
+        for (let dong = 1; dong <= chieuCao; dong++) {
+            let giaTri = '';
             for (let j = 1; j <= 2 * chieuCao-1; j++) {
-                if (i == chieuCao || j == chieuCao - (i - 1) || j == chieuCao + (i - 1)) {
-                    dong += '*';
+                if (dong == chieuCao || j == chieuCao - (dong - 1) || j == chieuCao + (dong - 1)) {
+                    giaTri += '*';
                 } else {
-                    dong += ' ';
+                    giaTri += ' ';
                 }
             }
-            ketQua += dong + '\n';
+            ketQua += giaTri + '\n';
         }
         return ketQua;
     }
 
-    document.getElementById('triangle').innerText = veTamGiacCan(5);
+    let num=5;
+    document.getElementById('triangle').innerText = veTamGiacCan(num);
 
 </script>
 </body>
