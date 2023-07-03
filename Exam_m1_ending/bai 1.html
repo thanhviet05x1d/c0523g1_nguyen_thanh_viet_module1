@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    let a = +prompt('Nhập cạnh a');
+    let b = +prompt('Nhập cạnh b');
+    let c = +prompt('Nhập cạnh c');
+
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        alert('Mời bạn nhập lại là các giá trị số');
+    } else if (a <= 0 || b <= 0 || c <= 0) {
+        alert('Cạnh của tham giác phải lớn hơn 0');
+    } else if (a * a === b * b + c * c || b * b === a * a + c * c || c * c === a * a + b * b) {
+        alert('Là ba cạnh của tam giác vuông');
+    } else {
+        alert('Không phải là ba cạnh của tam giác vuông')
+    }
+
+</script>
+<body>
+
+</body>
+</html>

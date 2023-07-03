@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    let n = +prompt('Nhập vào chiều dài mảng:');
+    if (isNaN(n) || n <= 0 || Number.isInteger(n) === false || n > 20) {
+        alert('Mời bạn nhập lại chiều dài mảng là một số nguyên >0 và <=20');
+
+    } else {
+        let mang = [];
+        for (let i = 0; i < n; i++) {
+            mang[i] = +prompt(`Nhập vào giá trị phần tử thứ ${i + 1} của mảng`);
+        }
+        document.write(mang + '<br>');
+        document.write(kiemTramang(mang));
+    }
+
+    function kiemTramang(mang) {
+        let demChan = 0;
+        let demLe = 0;
+        for (let i = 0; i < mang.length; i++) {
+            if (mang[i] % 2 === 0) {
+                demChan++;
+            } else if (mang[i] % 2 !== 0) {
+                demLe++;
+            }
+        }
+        if (demChan === mang.length) {
+            return 'Mảng chẵn';
+        } else if (demLe === mang.length) {
+            return 'Mảng lẻ';
+        } else {
+            return 'Mảng hỗn hợp';
+        }
+    }
+
+</script>
+<body>
+
+</body>
+</html>

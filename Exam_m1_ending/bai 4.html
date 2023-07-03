@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 60%;
+        margin-top: 20px;
+    }
+
+    th {
+        background: slategray;
+        border: black solid 1px;
+
+    }
+
+    td {
+        border: black solid 1px;
+    }
+</style>
+<script>
+    //1. Khai báo Class cây trồng
+    class CayTrong {
+        constructor(ma, ten, loai, thoiGian, soLuong) {
+            this.ma = ma;
+            this.ten = ten;
+            this.loai = loai;
+            this.thoiGian = thoiGian;
+            this.soLuong = soLuong;
+        }
+    }
+
+    let danhSachCayTrong = []; // mảng chứa danh sách cây trồng
+
+    // 2. Hàm hiển thị cây trồng
+
+    function hienThiCayTrong() {
+        let phanCayTrong = document.getElementById('phanCayTrong');
+        phanCayTrong.innerHTML = '';
+        for (let i = 0; i < danhSachCayTrong.length; i++) {
+            let dong = phanCayTrong.insertRow(i);
+            dong.insertCell(0).innerHTML = danhSachCayTrong[i].ma;
+            dong.insertCell(1).innerHTML = danhSachCayTrong[i].ten;
+            dong.insertCell(2).innerHTML = danhSachCayTrong[i].loai;
+            dong.insertCell(3).innerHTML = danhSachCayTrong[i].thoiGian;
+            dong.insertCell(4).innerHTML = danhSachCayTrong[i].soLuong;
+            dong.insertCell(5).innerHTML = " <button onclick='xoaCayTrong(" + i + ")'>" + "Xóa" + "</button> "
+        }
+    }
+
+    // 3. Hàm thêm mới cây trồng
+    function themCayTrong() {
+        // Vì đề bài không yêu cầu xác nhận các dữ liệu vào nên chuỗi hay số gì cũng được
+        let ma = prompt('Nhập mã CT');
+        let ten = prompt('Nhập Tên CT');
+        let loai = prompt('Nhập loại CT');
+        let thoiGian = prompt('Nhập thời gian thu hoạch CT');
+        let soLuong = prompt('Nhập số lượng của CT');
+        let cayTrong = new CayTrong(ma, ten, loai, thoiGian, soLuong);
+        danhSachCayTrong.push(cayTrong);
+        hienThiCayTrong();
+    }
+
+    // 4. Hàm xóa cây trồng
+    function xoaCayTrong(i) {
+        let xacNhan = confirm(`Bạn có muốn xóa cây trồng có mã là ${danhSachCayTrong[i].ma} `)
+        if (xacNhan === true) {
+            danhSachCayTrong.splice(i, 1);
+            hienThiCayTrong();
+        }
+    }
+
+</script>
+<body>
+<h1> Danh sách cây trồng </h1>
+<button onclick="themCayTrong()"> Thêm mới </button>
+<table>
+    <thead>
+    <tr>
+        <th>Mã</th>
+        <th>Tên</th>
+        <th>Loại</th>
+        <th>Thời gian thu hoạch</th>
+        <th>Số lượng cây</th>
+        <th>Xóa</th>
+    </tr>
+    </thead>
+    <tbody id="phanCayTrong"></tbody>
+</table>
+
+</body>
+</html>

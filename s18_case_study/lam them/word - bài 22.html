@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Rut gon String</title>
+
+</head>
+<body>
+<script>
+    let newArr = [];
+    // let n=+prompt('Nhập vào số cột của mảng 2 chiều');
+    let n = 24;
+    for (let i = 0; i < n; i++) {
+        if (isPrime(i) === true && isPrime(n - i) === true) {
+            newArr.push(i);
+            newArr.push(n - i);
+            break; // Vì đề bài yêu cầu 1 cặp có 1 số là nhỏ nhất
+        }
+    }
+    console.log(newArr);
+
+    function isPrime(number) {
+        let dem = 0;
+        for (let i = 1; i <= number; i++) {
+            if (number % i === 0) {
+                dem++;
+            }
+        }
+        if (dem === 2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+</script>
+</body>
+</html>

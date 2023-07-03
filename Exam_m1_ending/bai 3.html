@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    // Vì đề không yêu cầu nhập từ bàn phím, nên để đặt luôn giá trị của chuỗi
+    let chuoi1 = "abc0123123";
+    let chuoi2 = "acefghjk";
+
+    function kiemTraChuoi(chuoi) {
+        let mang = chuoi.split('');
+        let mangSo = [];
+        let mangSoKhongTrung = [];
+        for (let i = 0; i < mang.length; i++) {
+            if (!isNaN(parseInt(mang[i]))) {
+                mangSo.push(mang[i]);
+            }
+        }
+        for (let i = 0; i < mangSo.length; i++) {
+            debugger;
+            if (mangSoKhongTrung.includes(mangSo[i]) !== true) {
+                mangSoKhongTrung.push(mangSo[i]);
+            }
+        }
+        return mangSoKhongTrung;
+    }
+
+    // document.write(kiemTraChuoi(chuoi1) + '<br>');
+    document.write(kiemTraChuoi(chuoi2));
+
+
+</script>
+<body>
+
+</body>
+</html>
